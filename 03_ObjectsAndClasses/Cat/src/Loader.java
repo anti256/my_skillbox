@@ -3,8 +3,42 @@ public class Loader
 {
     public static void main(String[] args)
     {
-        Cat cat = new Cat();
+        Cat vasiliy = new Cat();
+        Cat kuzja = new Cat();
+        Cat pushok = new Cat();
+        Cat snegok = new Cat();
+        Cat pendal = new Cat();
+        Cat sosiska = new Cat();
 
-        System.out.println(cat.getStatus());
+        System.out.println("Вес Василия - "+ vasiliy.getWeight());
+        System.out.println("Вес Кузи - "+ kuzja.getWeight());
+        System.out.println("Вес Пушка - "+ pushok.getWeight());
+        System.out.println("Вес Снежка - "+ snegok.getWeight());
+        System.out.println("Вес Сосиски - "+ sosiska.getWeight());
+        System.out.println("Вес Пендаля - "+ pendal.getWeight());
+
+        pendal.feed(100.0);
+        sosiska.feed(200.0);
+        System.out.println("\nВес Пендаля - "+ pendal.getWeight());
+        System.out.println("Вес Сосиски - "+ sosiska.getWeight());
+
+        System.out.println("\nПерекорм============================");
+        System.out.println("Вес Кузи - "+ kuzja.getWeight());
+        System.out.println("Кузя - "+ kuzja.getStatus());
+        while (kuzja.getStatus() != "Exploded"){
+            kuzja.feed(200.0);
+            System.out.println("Вес Кузи - "+ kuzja.getWeight());
+            System.out.println("Кузя - "+ kuzja.getStatus());
+        }
+
+        System.out.println("\nЗамяукивание============================");
+        System.out.println("Вес Пушка - "+ pushok.getWeight());
+        System.out.println("Пушок - "+ pushok.getStatus());
+        while (pushok.getStatus() != "Dead") {
+            pushok.meow();
+            System.out.println("Вес Пушка - " + pushok.getWeight());
+            System.out.println("Пушок - " + pushok.getStatus());
+        }
+        //System.out.println(cat.getStatus());
     }
 }
