@@ -25,7 +25,7 @@ public class Loader
         System.out.println("\nПерекорм============================");
         System.out.println("Вес Кузи - "+ kuzja.getWeight());
         System.out.println("Кузя - "+ kuzja.getStatus());
-        while (kuzja.getStatus() != "Exploded"){
+        while (!kuzja.getStatus().equals("Exploded")){
             kuzja.feed(200.0);
             System.out.println("Вес Кузи - "+ kuzja.getWeight());
             System.out.println("Кузя - "+ kuzja.getStatus());
@@ -34,7 +34,7 @@ public class Loader
         System.out.println("\nЗамяукивание============================");
         System.out.println("Вес Пушка - "+ pushok.getWeight());
         System.out.println("Пушок - "+ pushok.getStatus());
-        while (pushok.getStatus() != "Dead") {
+        while (!pushok.getStatus().equals("Dead")) {
             pushok.meow();
             System.out.println("Вес Пушка - " + pushok.getWeight());
             System.out.println("Пушок - " + pushok.getStatus());
