@@ -1,65 +1,90 @@
+//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by FernFlower decompiler)
+//
 
-public class Cat
-{
+public class Cat {
     private double originWeight;
-    private double weight;
-
+    private double weight = 1500.0D + 3000.0D * Math.random();
     private double minWeight;
     private double maxWeight;
     private double eaten;
+    public String stat;
+    static int count = 0;
 
-    public Cat()
-    {
-        weight = 1500.0 + 3000.0 * Math.random();
-        originWeight = weight;
-        minWeight = 1000.0;
-        maxWeight = 9000.0;
-        eaten = 0;
-
+    public Cat() {
+        this.originWeight = this.weight;
+        this.minWeight = 1000.0D;
+        this.maxWeight = 9000.0D;
+        this.eaten = 0.0D;
+        ++count;
     }
 
-    public Double getEaten() { return eaten;}
-    
+    public Double getEaten() {
+        return this.eaten;
+    }
+
     public void pee() {
-         weight = weight - 50;
-         System.out.println("Дело сделано!\nТеперь его вес - "+this.weight+ "\n");
-    }
-    
+        if (this.weight < this.minWeight | this.weight > this.maxWeight) {
+            System.out.println("\nКошечка мертва и не может больше пи-пи\n");
+        } else {
+            this.weight -= 50.0D;
+            System.out.println("Дело сделано!\nТеперь его вес - " + this.weight + "\n");
+        }
 
-    public void meow()
-    {
-        weight = weight - 50;
-        System.out.println("Meow");
     }
 
-    public void feed(Double amount)
-    {
-        weight = weight + amount;
-        eaten = eaten + amount;
+    public void meow() {
+        if (this.weight < this.minWeight | this.weight > this.maxWeight) {
+            System.out.println("\nКошечка мертва и не может больше мяукать\n");
+        } else {
+            this.weight -= 50.0D;
+            System.out.println("Meow");
+        }
+
     }
 
-    public void drink(Double amount)
-    {
-        weight = weight + amount;
+    public void feed(Double amount) {
+        if (this.weight < this.minWeight | this.weight > this.maxWeight) {
+            System.out.println("\nКошечка мертва и не может больше есть\n");
+        } else {
+            this.weight += amount;
+            this.eaten += amount;
+        }
+
     }
 
-    public Double getWeight()
-    {
-        return weight;
+    public void drink(Double amount) {
+        if (this.weight < this.minWeight | this.weight > this.maxWeight) {
+            System.out.println("\nКошечка мертва и не может больше пить\n");
+        } else {
+            this.weight += amount;
+        }
+
     }
 
-    public String getStatus()
-    {
-        if(weight < minWeight) {
+    public Double getWeight() {
+        return this.weight;
+    }
+
+    public static int getCount() {
+        return count;
+    }
+
+    public String getStatus() {
+        if (this.weight < this.minWeight) {
+            --count;
+            this.stat = "Dead";
             return "Dead";
-        }
-        else if(weight > maxWeight) {
+        } else if (this.weight > this.maxWeight) {
+            --count;
+            this.stat = "Exploded";
             return "Exploded";
-        }
-        else if(weight > originWeight) {
+        } else if (this.weight > this.originWeight) {
+            this.stat = "Sleeping";
             return "Sleeping";
-        }
-        else {
+        } else {
+            this.stat = "Playing";
             return "Playing";
         }
     }

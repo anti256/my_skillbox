@@ -1,53 +1,47 @@
+//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by FernFlower decompiler)
+//
 
-public class Loader
-{
-    public static void main(String[] args)
-    {
-        //Cat vasiliy = new Cat();
-        //Cat kuzja = new Cat();
-        //Cat pushok = new Cat();
-        //Cat snegok = new Cat();
-        Cat pendal = new Cat();
-        //Cat sosiska = new Cat();
+public class Loader {
+    public Loader() {
+    }
 
-        /*System.out.println("Вес Василия - "+ vasiliy.getWeight());
-        System.out.println("Вес Кузи - "+ kuzja.getWeight());
-        System.out.println("Вес Пушка - "+ pushok.getWeight());
-        System.out.println("Вес Снежка - "+ snegok.getWeight());
-        System.out.println("Вес Сосиски - "+ sosiska.getWeight());*/
-        System.out.println("Вес Пендаля - "+ pendal.getWeight()+"\n");
+    public static void main(String[] args) {
+        new Cat();
+        Cat kuzja = new Cat();
+        new Cat();
+        new Cat();
+        new Cat();
+        Cat sosiska = new Cat();
+        System.out.println("Кошек " + Cat.getCount() + " шт.");
+        System.out.println("\nПерекорм============================");
+        System.out.println("Вес Кузи - " + kuzja.getWeight());
+        System.out.println("Кузя - " + kuzja.getStatus());
 
-        pendal.feed(150.0);
-        System.out.println("Пендаль съел "+pendal.getEaten()+" грамм");
-        pendal.feed(150.0);
-        System.out.println("Пендаль съел "+pendal.getEaten()+" грамм\n");
-        pendal.pee();
-        pendal.pee();
-        pendal.pee();
+        while(!kuzja.stat.equals("Exploded")) {
+            kuzja.feed(1000.0D);
+            System.out.println("Вес Кузи - " + kuzja.getWeight());
+            System.out.println("Кузя - " + kuzja.getStatus());
+            System.out.println(kuzja.getWeight());
+        }
 
+        System.out.println("Кошек " + Cat.getCount() + " шт.");
+        System.out.println("\nПерекорм============================");
+        System.out.println("Вес Сосиски - " + sosiska.getWeight());
+        System.out.println("Сосиска - " + sosiska.getStatus());
 
-        /*pendal.feed(100.0);
-        sosiska.feed(200.0);
-        System.out.println("\nВес Пендаля - "+ pendal.getWeight());
-        System.out.println("Вес Сосиски - "+ sosiska.getWeight());*/
+        while(!sosiska.stat.equals("Exploded")) {
+            sosiska.feed(1000.0D);
+            System.out.println("Вес Сосиски - " + sosiska.getWeight());
+            System.out.println("Сосиска - " + sosiska.getStatus());
+            System.out.println(sosiska.getWeight());
+        }
 
-        /*System.out.println("\nПерекорм============================");
-        System.out.println("Вес Кузи - "+ kuzja.getWeight());
-        System.out.println("Кузя - "+ kuzja.getStatus());
-        while (!kuzja.getStatus().equals("Exploded")){
-            kuzja.feed(200.0);
-            System.out.println("Вес Кузи - "+ kuzja.getWeight());
-            System.out.println("Кузя - "+ kuzja.getStatus());
-        }*/
-
-        /*System.out.println("\nЗамяукивание============================");
-        System.out.println("Вес Пушка - "+ pushok.getWeight());
-        System.out.println("Пушок - "+ pushok.getStatus());
-        while (!pushok.getStatus().equals("Dead")) {
-            pushok.meow();
-            System.out.println("Вес Пушка - " + pushok.getWeight());
-            System.out.println("Пушок - " + pushok.getStatus());
-        }*/
-        //System.out.println(cat.getStatus());
+        System.out.println("Кошек " + Cat.getCount() + " шт.");
+        sosiska.drink(100.0D);
+        kuzja.pee();
+        sosiska.feed(50.0D);
+        kuzja.meow();
     }
 }
