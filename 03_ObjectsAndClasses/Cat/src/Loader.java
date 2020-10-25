@@ -12,18 +12,22 @@ public class Loader {
         Cat kuzja = new Cat();
         new Cat();
         new Cat();
-        new Cat();
+        Cat vasja = new Cat();
         Cat sosiska = new Cat();
         System.out.println("Кошек " + Cat.getCount() + " шт.");
         System.out.println("\nПерекорм============================");
         System.out.println("Вес Кузи - " + kuzja.getWeight());
         System.out.println("Кузя - " + kuzja.getStatus());
 
-        while(!kuzja.stat.equals("Exploded")) {
-            kuzja.feed(1000.0D);
-            System.out.println("Вес Кузи - " + kuzja.getWeight());
-            System.out.println("Кузя - " + kuzja.getStatus());
-            System.out.println(kuzja.getWeight());
+        while(kuzja.isAlive) {                                     //пока кошка жива
+            kuzja.feed(1000.0D);                            //вкармливаем кошке 1000 гр
+                                                                    //в классе производится проверка по весу и
+                                                                    //устанавливаются соотвествующие статусы
+            System.out.println("Вес Кузи - " + kuzja.getWeight());  //выводим вес кошки
+            System.out.println("Кузя - " + kuzja.getStatus());      //выводим статус кошки
+                                                                    //если кошка уже мертва, выводится строковый статус
+                                                                    //жизни, полученный при кормлении
+            System.out.println(kuzja.getWeight());                  //выводится вес кошки
         }
 
         System.out.println("Кошек " + Cat.getCount() + " шт.");
@@ -31,7 +35,7 @@ public class Loader {
         System.out.println("Вес Сосиски - " + sosiska.getWeight());
         System.out.println("Сосиска - " + sosiska.getStatus());
 
-        while(!sosiska.stat.equals("Exploded")) {
+        while(sosiska.isAlive) {
             sosiska.feed(1000.0D);
             System.out.println("Вес Сосиски - " + sosiska.getWeight());
             System.out.println("Сосиска - " + sosiska.getStatus());
@@ -39,9 +43,21 @@ public class Loader {
         }
 
         System.out.println("Кошек " + Cat.getCount() + " шт.");
+        System.out.println("\nПи-пи до смерти============================");
+        System.out.println("Вес Васи - " + vasja.getWeight());
+        System.out.println("Вася - " + vasja.getStatus());
+
+        while (vasja.isAlive){
+            vasja.pee();
+            System.out.println("Вес Васи - " + vasja.getWeight());
+            System.out.println("Вася - " + vasja.getStatus());
+            System.out.println(vasja.getWeight());
+        }
+
+        System.out.println("Кошек " + Cat.getCount() + " шт.");
         sosiska.drink(100.0D);
         kuzja.pee();
         sosiska.feed(50.0D);
-        kuzja.meow();
+        vasja.meow();
     }
 }
