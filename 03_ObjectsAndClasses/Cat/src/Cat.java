@@ -12,6 +12,9 @@ public class Cat {
     public String stat;
     static int count = 0;
     public Boolean isAlive = true;
+    static final int EYE_COUNT = 2;
+    static final double MIN_WEIGHT = 1000.0D;
+    static final double MAX_WEIGHT = 9000.0D;
 
     public Cat() {
         this.originWeight = this.weight;
