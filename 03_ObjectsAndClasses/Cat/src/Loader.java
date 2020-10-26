@@ -14,6 +14,8 @@ public class Loader {
         new Cat();
         Cat vasja = new Cat();
         Cat sosiska = new Cat();
+
+        //перекорм Кузи
         System.out.println("Кошек " + Cat.getCount() + " шт.");
         System.out.println("\nПерекорм============================");
         System.out.println("Вес Кузи - " + kuzja.getWeight());
@@ -27,9 +29,10 @@ public class Loader {
             System.out.println("Кузя - " + kuzja.getStatus());      //выводим статус кошки
                                                                     //если кошка уже мертва, выводится строковый статус
                                                                     //жизни, полученный при кормлении
-            System.out.println(kuzja.getWeight());                  //выводится вес кошки
         }
 
+
+        //перекорм Сосиски
         System.out.println("Кошек " + Cat.getCount() + " шт.");
         System.out.println("\nПерекорм============================");
         System.out.println("Вес Сосиски - " + sosiska.getWeight());
@@ -39,9 +42,10 @@ public class Loader {
             sosiska.feed(1000.0D);
             System.out.println("Вес Сосиски - " + sosiska.getWeight());
             System.out.println("Сосиска - " + sosiska.getStatus());
-            System.out.println(sosiska.getWeight());
         }
 
+
+        //Пи-пи до смерти
         System.out.println("Кошек " + Cat.getCount() + " шт.");
         System.out.println("\nПи-пи до смерти============================");
         System.out.println("Вес Васи - " + vasja.getWeight());
@@ -51,13 +55,19 @@ public class Loader {
             vasja.pee();
             System.out.println("Вес Васи - " + vasja.getWeight());
             System.out.println("Вася - " + vasja.getStatus());
-            System.out.println(vasja.getWeight());
         }
 
+        //проверка методов на разные ситуации у мертвых кошек
         System.out.println("Кошек " + Cat.getCount() + " шт.");
         sosiska.drink(100.0D);
         kuzja.pee();
         sosiska.feed(50.0D);
         vasja.meow();
+
+        //проверка getStatus на мертвой кошке
+        System.out.println("Сосиска - " + sosiska.getStatus());
+        System.out.println(sosiska.getWeight());
+        System.out.println("Кошек " + Cat.getCount() + " шт.");
+
     }
 }
