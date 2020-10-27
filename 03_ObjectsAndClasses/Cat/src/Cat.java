@@ -5,7 +5,7 @@
 
 public class Cat {
     private double originWeight;
-    private double weight = 1500.0D + 3000.0D * Math.random();
+    private double weight;
     private double minWeight;
     private double maxWeight;
     private double eaten;
@@ -16,9 +16,15 @@ public class Cat {
     static final double MAX_WEIGHT = 9000.0D;
 
     public Cat() {
+        weight = 1500.0D + 3000.0D * Math.random();
         originWeight = weight;
         eaten = 0.0D;
         ++count;
+    }
+
+    public Cat(Double weight){
+        this();
+        this.weight = weight;
     }
 
     public Double getEaten() {
@@ -28,7 +34,7 @@ public class Cat {
     //установка признака мертвой кошки и уменьшение количества кошек в зависимости от веса кошки
     private void deadCat (){
         if (isWeightNotNormal()){//если вес кошки не в норме
-        isAlive = false;                        //кошка - мертвая
+        isAlive = false;         //кошка - мертвая
         --count;}
     }
 

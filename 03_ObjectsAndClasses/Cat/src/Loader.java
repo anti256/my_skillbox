@@ -7,14 +7,28 @@ public class Loader {
     public Loader() {
     }
 
-    public static void main(String[] args) {
-        new Cat();
-        Cat kuzja = new Cat();
-        new Cat();
-        new Cat();
-        Cat vasja = new Cat();
-        Cat sosiska = new Cat();
+    private static Cat getKitten() {
+        return new Cat(1100.0D);
+    }
 
+    public static void main(String[] args) {
+        //new Cat();
+        Cat kuzja;
+        //new Cat();
+        Cat murka;
+        Cat vasja;
+        //Cat sosiska = new Cat();
+
+        murka = getKitten();
+        System.out.println("Вес Мурки - "+murka.getWeight());
+
+        kuzja = getKitten();
+        System.out.println("Вес Кузи - "+kuzja.getWeight());
+
+        vasja = getKitten();
+        System.out.println("Вес Васи - "+vasja.getWeight());
+
+/*
         //перекорм Кузи
         System.out.println("Кошек " + Cat.getCount() + " шт.");
         System.out.println("\nПерекорм============================");
@@ -67,7 +81,7 @@ public class Loader {
         //проверка getStatus на мертвой кошке
         System.out.println("Сосиска - " + sosiska.getStatus());
         System.out.println(sosiska.getWeight());
-        System.out.println("Кошек " + Cat.getCount() + " шт.");
+        System.out.println("Кошек " + Cat.getCount() + " шт.");*/
 
     }
 }
