@@ -25,14 +25,18 @@ public class Cat {
         return eaten;
     }
 
+    //установка признака мертвой кошки и уменьшение количества кошек в зависимости от веса кошки
+    private void deadCat (){
+        if (isWeightNotNormal()){//если вес кошки не в норме
+        isAlive = false;                        //кошка - мертвая
+        --count;}
+    }
+
     public void pee() {                  //пи-пи
         if (isAlive) {                   //если кошка жива
             weight -= 500.0D;        //уменьшаем её вес
             System.out.println("\nДело сделано!");
-            if (isWeightNotNormal(weight)){//если вес кошки после этого не в норме
-                isAlive = false;                        //кошка - мертвая
-                --count;
-            }
+            deadCat();
         } else {                         //если мертва, выводим об этом надпись
             System.out.println("\nКошечка мертва и не может больше пи-пи\n");
         }
@@ -42,10 +46,7 @@ public class Cat {
         if (isAlive) {                   //если кошка жива
             weight -= 50.0D;        //уменьшаем её вес
             System.out.println("Meow");  //выводим "Meow"
-            if (isWeightNotNormal(weight)){//если вес кошки после этого не в норме
-                isAlive = false;                        //кошка - мертвая
-                --count;
-            }
+            deadCat();
         } else {                         //если мертва, выводим об этом надпись
             System.out.println("\nКошечка мертва и не может больше мяукать\n");
         }
@@ -55,10 +56,7 @@ public class Cat {
         if (isAlive) {              //если кошка жива
             weight += amount;  //увеличиваем её вес на величину корма
             eaten += amount;   //увеличиваем общее количество съеденного на величину корма
-            if (isWeightNotNormal(weight)){//если вес кошки после этого не в норме
-                isAlive = false;                        //кошка - мертвая
-                --count;
-            }
+            deadCat();
         } else {                    //если мертва, выводим об этом надпись
             System.out.println("\nКошечка мертва и не может больше есть\n");
         }
@@ -67,10 +65,7 @@ public class Cat {
     public void drink(Double amount) {  //питье
         if (isAlive) {              //если кошка жива
             weight += amount;       //увеличиваем её вес на величину питья
-            if (isWeightNotNormal(weight)){//если вес кошки не в норме
-                isAlive = false;                        //кошка - мертвая
-                --count;
-            }
+            deadCat();
         } else {                    //если мертва, выводим об этом надпись
             System.out.println("\nКошечка мертва и не может больше пить\n");
         }
@@ -85,7 +80,7 @@ public class Cat {
     }
 
     //проверка нормальности веса
-    private boolean isWeightNotNormal(double mass) { return (mass < MIN_WEIGHT | mass > MAX_WEIGHT); }
+    private boolean isWeightNotNormal() { return (weight < MIN_WEIGHT | weight > MAX_WEIGHT); }
 
     public String getStatus() {
         if (weight < MIN_WEIGHT) {//если вес меньше минимального
