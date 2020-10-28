@@ -9,7 +9,7 @@ public class Cat {
     private double minWeight;
     private double maxWeight;
     private double eaten;
-    private String color;
+    private Color catColor;
     static int count = 0;
     public Boolean isAlive = true;
     static final int EYE_COUNT = 2;
@@ -28,12 +28,12 @@ public class Cat {
         this.weight = weight;
     }
 
-    public void setColor (String color){
-        this.color = color;
+    public void setColor (Color color){
+        catColor = color;
     }
 
-    public String getColor(){
-        return color;
+    public Color getColor(){
+        return catColor;
     }
 
     public Double getEaten() {
