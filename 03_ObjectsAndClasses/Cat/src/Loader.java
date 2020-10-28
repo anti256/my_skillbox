@@ -11,22 +11,34 @@ public class Loader {
         return new Cat(1100.0D);
     }
 
+    private static void copyCat(Cat catIn, Cat catOut){//метод копирования свойств существующей кошки
+       catIn.setWeight(catOut.getWeight());            //копирование веса
+       catIn.setColor(catOut.getColor());              //копирование цвета
+       catIn.isAlive = catOut.isAlive;                 //копирование признака жизни
+       catIn.setOriginWeight();
+    }
+
     public static void main(String[] args) {
         //new Cat();
-        Cat kuzja;
+        //Cat kuzja;
         //new Cat();
         Cat murka;
-        Cat vasja;
+        Cat vasja = new Cat();
         //Cat sosiska = new Cat();
 
         murka = getKitten();
         System.out.println("Вес Мурки - "+murka.getWeight());
 
-        kuzja = getKitten();
+        //проверка конструктора
+        Cat kuzja = new Cat(murka);
         System.out.println("Вес Кузи - "+kuzja.getWeight());
 
-        vasja = getKitten();
+        //проверка copyCat
         System.out.println("Вес Васи - "+vasja.getWeight());
+        System.out.println("originalWeight - "+ vasja.getOriginWeight());
+        copyCat (vasja, murka);
+        System.out.println("Вес Васи - "+vasja.getWeight());
+        System.out.println("originalWeight - "+ vasja.getOriginWeight());
 
 /*
         //перекорм Кузи

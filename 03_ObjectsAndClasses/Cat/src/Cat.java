@@ -6,8 +6,6 @@
 public class Cat {
     private double originWeight;
     private double weight;
-    private double minWeight;
-    private double maxWeight;
     private double eaten;
     private Color catColor;
     static int count = 0;
@@ -18,9 +16,17 @@ public class Cat {
 
     public Cat() {
         weight = 1500.0D + 3000.0D * Math.random();
-        originWeight = weight;
+        setOriginWeight();
         eaten = 0.0D;
         ++count;
+    }
+
+    public void setOriginWeight(){  //сеттер создан только для проверки
+        originWeight = weight;
+    }
+
+    public double getOriginWeight(){ //геттер создан только для проверки
+        return originWeight;
     }
 
     public Cat(Double weight){
@@ -28,12 +34,25 @@ public class Cat {
         this.weight = weight;
     }
 
+    public Cat(Cat cat){//конструктор по имеющейся кошке
+        this();
+        this.weight = cat.getWeight();  //присвоение веса
+        this.originWeight = cat.originWeight;
+        this.isAlive = cat.isAlive;     //присвоение признака жизни
+        this.catColor = cat.getColor(); //присвоение цвета
+    }
+
+
     public void setColor (Color color){
         catColor = color;
     }
 
     public Color getColor(){
         return catColor;
+    }
+
+    public void setWeight(double weight){
+        this.weight = weight;
     }
 
     public Double getEaten() {
