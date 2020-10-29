@@ -12,7 +12,7 @@ public class Loader {
     }
 
         private static Cat copy(Cat original){
-        Cat koshka = Cat.newEmptyCat();                     //создание "пустой" кошки
+        Cat koshka = new Cat();                             //создание кошки
         koshka.setWeight(original.getWeight());            //копирование веса
         koshka.setColor(original.getColor());              //копирование цвета
         koshka.setIsAlive(original.getIsAlive());          //копирование признака жизни

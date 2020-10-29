@@ -25,8 +25,6 @@ public class Cat {
         this.isAlive = isAlive;
     }
 
-    public static Cat newEmptyCat(){ return new Cat();}
-
     public Boolean getIsAlive(){
         return isAlive;
     }
