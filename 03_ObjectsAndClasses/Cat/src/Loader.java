@@ -11,34 +11,41 @@ public class Loader {
         return new Cat(1100.0D);
     }
 
-    private static void copyCat(Cat catIn, Cat catOut){//метод копирования свойств существующей кошки
-       catIn.setWeight(catOut.getWeight());            //копирование веса
-       catIn.setColor(catOut.getColor());              //копирование цвета
-       catIn.isAlive = catOut.isAlive;                 //копирование признака жизни
-       catIn.setOriginWeight();
+        private static Cat copy(Cat original){
+        Cat koshka = Cat.newEmptyCat();                     //создание "пустой" кошки
+        koshka.setWeight(original.getWeight());            //копирование веса
+        koshka.setColor(original.getColor());              //копирование цвета
+        koshka.setIsAlive(original.getIsAlive());          //копирование признака жизни
+        koshka.setOriginWeight();
+        return koshka;
     }
 
     public static void main(String[] args) {
         //new Cat();
         //Cat kuzja;
-        //new Cat();
-        Cat murka;
-        Cat vasja = new Cat();
-        //Cat sosiska = new Cat();
+        Cat kitty = new Cat(); //создаем кошку kitty по обычному конструктору
+        Cat murka;             //создаем "пустую" кошку murka
+        Cat vasja;             //создаем "пустую" кошку vasja
+        Cat sosiska;           //создаем "пустую" кошку sosiska
 
-        murka = getKitten();
-        System.out.println("Вес Мурки - "+murka.getWeight());
+        System.out.println("Вес Китти - " + kitty.getWeight());
+
+        murka = getKitten();   //делаем Мурку "нормальной" кошкой с весом 1100
+        System.out.println("Вес Мурки - " + murka.getWeight());
 
         //проверка конструктора
-        Cat kuzja = new Cat(murka);
-        System.out.println("Вес Кузи - "+kuzja.getWeight());
+        Cat kuzja = new Cat(murka); //создаем Кузю через конструктор с использованием свойств Мурки
+        System.out.println("\nПроверка\nВес Кузи - " + kuzja.getWeight());
 
-        //проверка copyCat
-        System.out.println("Вес Васи - "+vasja.getWeight());
-        System.out.println("originalWeight - "+ vasja.getOriginWeight());
-        copyCat (vasja, murka);
-        System.out.println("Вес Васи - "+vasja.getWeight());
-        System.out.println("originalWeight - "+ vasja.getOriginWeight());
+        //проверка копирования
+        vasja = copy(murka);  //у "пустого" Васьки создаем свойства - копии свойств Мурки
+        System.out.println("\nПроверка\nВес Васи - " +  vasja.getWeight());
+        System.out.println("originalWeight - " + vasja.getOriginWeight());
+
+        //проверка копирования
+        sosiska = copy(kitty); //у "пустой" Сосиски создаем свойства - копии свойств Китти
+        System.out.println("\nПроверка\nВес Сосиски - " + sosiska.getWeight());
+        System.out.println("originalWeight - " + sosiska.getOriginWeight());
 
 /*
         //перекорм Кузи

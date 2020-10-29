@@ -9,7 +9,7 @@ public class Cat {
     private double eaten;
     private Color catColor;
     static int count = 0;
-    public Boolean isAlive = true;
+    private Boolean isAlive = true;
     static final int EYE_COUNT = 2;
     static final double MIN_WEIGHT = 1000.0D;
     static final double MAX_WEIGHT = 9000.0D;
@@ -19,6 +19,16 @@ public class Cat {
         setOriginWeight();
         eaten = 0.0D;
         ++count;
+    }
+
+    public void setIsAlive(Boolean isAlive){
+        this.isAlive = isAlive;
+    }
+
+    public static Cat newEmptyCat(){ return new Cat();}
+
+    public Boolean getIsAlive(){
+        return isAlive;
     }
 
     public void setOriginWeight(){  //сеттер создан только для проверки
