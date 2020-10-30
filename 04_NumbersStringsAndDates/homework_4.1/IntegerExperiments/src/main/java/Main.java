@@ -2,9 +2,11 @@ public class Main {
 
   public static void main(String[] args) {
     Container container = new Container();
-    container.count += 7843;
+    container.count += 7843;//если count будет Integer, то container.count будет null  и эта строка выдаст ошибку
 
-    int sum = sumDigits(7843);
+    //int sum = sumDigits(7843);
+
+    int sum = sumDigits(container.count);
 
     System.out.println(sum);
   }
@@ -19,8 +21,23 @@ public class Main {
   В противном случае тестовый метод не сможет проверить ваш код
    */
 
+  //класса Integer: toString() - преобразует число в строку
+  // - Integer: parseInt() - преобразует строку в число;
+  // - класса String: charAt() - возвращает символ по индексу с нуля,
+  // - length() - длина строки,
+  // - valueOf()- возвращает строку из числа
+
+
   public static int sumDigits(Integer number) {
-    //@TODO: write code here and delete TODO line
-    return 0;
+    String str = String.valueOf(number);        //строка из числа
+    if (!str.equals("null")){                   //если аргумент не равен null
+     //длина строки
+     int length = str.length();
+     int summa = 0;                               //обнуляем результат
+     for (int i = 0; i < length; i++) {          //перебор
+      summa += Integer.parseInt(String.valueOf(str.charAt(i)));}
+     return summa;
+     }
+     else {return -1;}
   }
 }
