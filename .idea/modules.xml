@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/04_NumbersStringsAndDates/homework_4.1/IntegerExperiments/01_sumdigits.iml" filepath="$PROJECT_DIR$/04_NumbersStringsAndDates/homework_4.1/IntegerExperiments/01_sumdigits.iml" />
       <module fileurl="file://$PROJECT_DIR$/03_ObjectsAndClasses/Cat/Cat.iml" filepath="$PROJECT_DIR$/03_ObjectsAndClasses/Cat/Cat.iml" />
-      <module fileurl="file://$PROJECT_DIR$/java_basics/03_ObjectsAndClasses/Cat/Cat1.iml" filepath="$PROJECT_DIR$/java_basics/03_ObjectsAndClasses/Cat/Cat1.iml" />
       <module fileurl="file://$PROJECT_DIR$/03_ObjectsAndClasses/RoadController/RoadController.iml" filepath="$PROJECT_DIR$/03_ObjectsAndClasses/RoadController/RoadController.iml" />
-      <module fileurl="file://$PROJECT_DIR$/03_ObjectsAndClasses/RoadController/RoadController1.iml" filepath="$PROJECT_DIR$/03_ObjectsAndClasses/RoadController/RoadController1.iml" />
       <module fileurl="file://$PROJECT_DIR$/03_ObjectsAndClasses/airport/airport.iml" filepath="$PROJECT_DIR$/03_ObjectsAndClasses/airport/airport.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/java_basics.iml" filepath="$PROJECT_DIR$/.idea/java_basics.iml" />
     </modules>
