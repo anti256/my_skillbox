@@ -30,17 +30,16 @@ public class Main {
 
   public static int sumDigits(Integer number) {
     String str = String.valueOf(number);        //строка из числа
-    if (!str.equals("null")){                   //если аргумент не равен null
-     //длина строки
-     int length = str.length();
-     int summa = 0;                               //обнуляем результат
-     for (int i = 0; i < length; i++) {          //перебор
-      summa += Character.digit(str.charAt(i),10);}
-     return summa;
-     }
-     else {return -1;}
+    if (!str.equals("null")) {                   //если аргумент не равен null
+      //длина строки
+      int length = str.length();
+      int summa = 0;                               //обнуляем результат
+      for (int i = 0; i < length; i++) {          //перебор
+        summa += Character.digit(str.charAt(i), 10);
+      }
+      return summa;
+    } else {
+      return -1;
+    }
   }
-
-
-
 }
