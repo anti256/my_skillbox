@@ -7,10 +7,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="01_sumdigits" />
+        <module name="GeometryCalculator" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="01_sumdigits" target="11" />
+      <module name="GeometryCalculator" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>

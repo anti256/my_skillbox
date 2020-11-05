@@ -1,7 +1,7 @@
 public class Main {
 
     public static void main(String[] args) {
-	  //byte
+    //byte
     System.out.println("Максимальное отрицательное byte: " + Byte.MIN_VALUE);
     System.out.println("Максимальное положительное byte: " + Byte.MAX_VALUE);
 
