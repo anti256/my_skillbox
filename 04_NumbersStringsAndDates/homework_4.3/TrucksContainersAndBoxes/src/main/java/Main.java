@@ -2,46 +2,55 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) {
-        //System.out.println("Введите количество ящиков");
-        Scanner scanner = new Scanner(System.in);
-        String boxes = scanner.nextLine();
-        int cases = Integer.parseInt(boxes);
-        int truck = 0, container = 0, currentCase = 1;
+  public static void main(String[] args) {
+    //System.out.println("Введите количество ящиков");
+    Scanner scanner = new Scanner(System.in);
+    String boxes = scanner.nextLine();
+    int cases = Integer.parseInt(boxes); //количество ящиков в цифрах
+    int truck = 0, container = 0, currentCase = 0, currentContainer = 0;
 
-        if (Math.abs(cases) == cases){// проверка корректности введенного числа ящиков
-          if (cases > 0) {//если ящиков больше нуля
-            truck = 1;    //начальное количество грузовиков и контейнеров равно единице
-            container = 1;
-            System.out.println("Грузовик: " + truck);
-            System.out.println("\tКонтейнер: " + container);
-            while (currentCase < (cases + 1)) {//начало цикла по ящикам
+    if (Math.abs(cases) == cases) {// проверка корректности введенного числа ящиков
+      if (cases > 0) {//если ящиков больше нуля
 
-              if ((currentCase > 1) & ((currentCase - 1) % 27
-                  == 0)) {//если количество ящиков больше 27
-                container++;                                         //берем следующий контейнер
-                if ((container > 1) & ((container - 1) % 12
-                    == 0)) {    //если количество контейнеров больше 12
-                  truck++;                                           //берем следующий грузовик
-                  System.out.println("Грузовик: " + truck);
-                }
-                System.out.println("\tКонтейнер: " + container);
+        //подсчет необходимого количества грузовиков и контейнеров
+        container = Math.floorDiv(cases, 27);//количество контейнеров
+        if (!(cases % 27 == 0)) {
+          container++;
+        }//если есть остаток, прибавляем один контейнер
+        truck = Math.floorDiv(container, 12);//количество грузовиков
+        if (!(container % 12 == 0)) {
+          truck++;
+        }//если есть остаток, прибавляем один грузовик
+
+        //отчет
+        for (int t = 0; t < truck; t++) {             //цикл по грузовикам
+          System.out.println("Грузовик: " + (t + 1));
+          for (int c = 1; c < 13; c++) {              //цикл по контейнерам в машине - 12 шт.
+            currentContainer++;                       //текущий контейнер в общей нумерации
+            System.out.println("\tКонтейнер: " + currentContainer);
+            for (int b = 1; b < 28; b++) {            //цикл по ящикам в контейнере - 27 шт.
+              if (currentCase >= cases) {
+                break;
               }
-
+              currentCase++;                         //текущий ящик в общей нумерации
               System.out.println("\t\tЯщик: " + currentCase);
-              currentCase++;
+            }
+            if (currentContainer >= container) {
+              break;
             }
           }
-
-            System.out.println("Необходимо:");
-            System.out.println("грузовиков - " + truck + " шт.");
-            System.out.println("контейнеров - " + container + " шт.");
         }
-        else {System.out.println("Количество ящиков должно быть не отрицательное.");}
+      }
 
+      System.out.println("Необходимо:");
+      System.out.println("грузовиков - " + truck + " шт.");
+      System.out.println("контейнеров - " + container + " шт.");
+    } else {
+      System.out.println("Количество ящиков должно быть не отрицательное.");
+    }
 
-        // пример вывода при вводе 2
-        // для отступа используйте табуляцию - \t
+    // пример вывода при вводе 2
+    // для отступа используйте табуляцию - \t
 
         /*
         Грузовик: 1
@@ -52,6 +61,6 @@ public class Main {
         грузовиков - 1 шт.
         контейнеров - 1 шт.
         */
-    }
+  }
 
 }
