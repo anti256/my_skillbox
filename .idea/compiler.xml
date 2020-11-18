@@ -11,6 +11,7 @@
         <module name="01_sumdigits" />
         <module name="TotalEarningsCalculatorReqExp" />
         <module name="GeometryCalculator" />
+        <module name="SplitText" />
         <module name="MaskingInformation" />
         <module name="TotalEarningsCalculator" />
       </profile>
@@ -20,6 +21,7 @@
       <module name="FullNameFormatter" target="11" />
       <module name="GeometryCalculator" target="11" />
       <module name="MaskingInformation" target="11" />
+      <module name="SplitText" target="11" />
       <module name="TotalEarningsCalculator" target="11" />
       <module name="TotalEarningsCalculatorReqExp" target="11" />
       <module name="TrucksContainersAndBoxes" target="11" />
