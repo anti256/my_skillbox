@@ -9,6 +9,7 @@
         <module name="TrucksContainersAndBoxes" />
         <module name="FullNameFormatter" />
         <module name="01_sumdigits" />
+        <module name="FullNameFormatterRegExp" />
         <module name="TotalEarningsCalculatorReqExp" />
         <module name="GeometryCalculator" />
         <module name="SplitText" />
@@ -19,6 +20,7 @@
     <bytecodeTargetLevel>
       <module name="01_sumdigits" target="11" />
       <module name="FullNameFormatter" target="11" />
+      <module name="FullNameFormatterRegExp" target="11" />
       <module name="GeometryCalculator" target="11" />
       <module name="MaskingInformation" target="11" />
       <module name="SplitText" target="11" />

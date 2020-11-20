@@ -69,7 +69,7 @@ public class TestNameFormatter {
   }
 
   @Test
-  @DisplayName("Текст = Салтыков-Щедрин Михаил Евграфович")
+  @DisplayName("Текст = [А-ЩЭЮЯ]")
   void formatFullNameWithDoubleSurname() {
     launchApplication(
         collectTestInput("Салтыков-Щедрин Михаил Евграфович"),
