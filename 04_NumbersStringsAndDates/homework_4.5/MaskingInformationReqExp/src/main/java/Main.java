@@ -5,7 +5,8 @@ public class Main {
     }
 
     public static String searchAndReplaceDiamonds(String text, String placeholder) {
-        // TODO: реализовать метод, если в строке нет <> - вернуть строку без изменений
+        //строка - скобка < - что угодно, кроме скобки > - скобка >
+        text = text.replaceAll("<[^>]*>", placeholder);
         return text;
     }
 
