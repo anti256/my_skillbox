@@ -9,7 +9,7 @@ class MainTest {
     @DisplayName("Введенная дата больше текущей")
     public void futureDate(){
         Calendar calendar = Calendar.getInstance();
-        calendar.roll(Calendar.MONTH, 1);
+        calendar.add(Calendar.MONTH, 1);
         launch(calendar.get(Calendar.DAY_OF_MONTH),
                 calendar.get(Calendar.MONTH) + 1,
                 calendar.get(Calendar.YEAR), "");
@@ -58,7 +58,7 @@ class MainTest {
         month = calendar.get(Calendar.MONTH) + 1;
         year = calendar.get(Calendar.YEAR);
         exp = formatDate(0, day, month, year,
-                calendar.get(Calendar.DAY_OF_WEEK)) + "\n" + exp;
+                calendar.get(Calendar.DAY_OF_WEEK)) + System.lineSeparator() + exp;
 
         launch(day, month, year, exp);
     }
