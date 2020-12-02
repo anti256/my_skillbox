@@ -12,6 +12,7 @@
         <module name="FullNameFormatterRegExp" />
         <module name="PhoneCleaner" />
         <module name="TotalEarningsCalculatorReqExp" />
+        <module name="BirthdayCalendar" />
         <module name="GeometryCalculator" />
         <module name="MaskingInformationReqExp" />
         <module name="SplitText" />
@@ -21,6 +22,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="01_sumdigits" target="11" />
+      <module name="BirthdayCalendar" target="11" />
       <module name="FullNameFormatter" target="11" />
       <module name="FullNameFormatterRegExp" target="11" />
       <module name="GeometryCalculator" target="11" />

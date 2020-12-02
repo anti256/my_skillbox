@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/04_NumbersStringsAndDates/homework_4.1/IntegerExperiments/01_sumdigits.iml" filepath="$PROJECT_DIR$/04_NumbersStringsAndDates/homework_4.1/IntegerExperiments/01_sumdigits.iml" />
       <module fileurl="file://$PROJECT_DIR$/04_NumbersStringsAndDates/homework_4.4/AlphabetChar/AlphabetChar.iml" filepath="$PROJECT_DIR$/04_NumbersStringsAndDates/homework_4.4/AlphabetChar/AlphabetChar.iml" />
+      <module fileurl="file://$PROJECT_DIR$/04_NumbersStringsAndDates/homework_4.6/BirthdayCalendar/BirthdayCalendar.iml" filepath="$PROJECT_DIR$/04_NumbersStringsAndDates/homework_4.6/BirthdayCalendar/BirthdayCalendar.iml" />
       <module fileurl="file://$PROJECT_DIR$/03_ObjectsAndClasses/Cat/Cat.iml" filepath="$PROJECT_DIR$/03_ObjectsAndClasses/Cat/Cat.iml" />
       <module fileurl="file://$PROJECT_DIR$/04_NumbersStringsAndDates/homework_4.4/FullNameFormatter/FullNameFormatter.iml" filepath="$PROJECT_DIR$/04_NumbersStringsAndDates/homework_4.4/FullNameFormatter/FullNameFormatter.iml" />
       <module fileurl="file://$PROJECT_DIR$/04_NumbersStringsAndDates/homework_4.5/FullNameFormatterRegExp/FullNameFormatterRegExp.iml" filepath="$PROJECT_DIR$/04_NumbersStringsAndDates/homework_4.5/FullNameFormatterRegExp/FullNameFormatterRegExp.iml" />
