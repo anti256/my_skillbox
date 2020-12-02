@@ -19,8 +19,8 @@ public class Main {
     public static String collectBirthdays(int year, int month, int day) {
         int i = 0;//номер строки в отчете
         String dateString = "";//создаем пустую строку
-        //создание формата вывода даты с английской локалью
-        SimpleDateFormat myDateFormat = new SimpleDateFormat("dd.MM.yyyy - EE",Locale.ENGLISH);
+        //создание формата вывода даты с русской локалью
+        SimpleDateFormat myDateFormat = new SimpleDateFormat("dd.MM.yyyy - EEEE",new Locale("ru"));
         Calendar myBirthCalendar = GregorianCalendar.getInstance();//создаем новый календарь
         Date currentDate = myBirthCalendar.getTime();//текущая дата
         myBirthCalendar.set(year,(month-1),day);//устанавливаем календарь на нужную дату
@@ -32,11 +32,6 @@ public class Main {
         myBirthCalendar.add(Calendar.YEAR, 1);//перемещаем календарь на год вперед
         date = myBirthCalendar.getTime();//получаем дату из календаря
       }
-
-        //TODO реализуйте метод для построения строки в следующем виде
-        //0 - 31.12.1990 - Mon
-        //1 - 31.12.1991 - Tue
-        
         return dateString;//метод возвращает строку
     }
 }
