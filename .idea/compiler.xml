@@ -6,18 +6,19 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="TrucksContainersAndBoxes" />
-        <module name="FullNameFormatter" />
-        <module name="01_sumdigits" />
-        <module name="FullNameFormatterRegExp" />
         <module name="PhoneCleaner" />
         <module name="TotalEarningsCalculatorReqExp" />
-        <module name="BirthdayCalendar" />
-        <module name="GeometryCalculator" />
+        <module name="ReverseArray" />
         <module name="MaskingInformationReqExp" />
         <module name="SplitText" />
         <module name="MaskingInformation" />
         <module name="TotalEarningsCalculator" />
+        <module name="TrucksContainersAndBoxes" />
+        <module name="FullNameFormatter" />
+        <module name="01_sumdigits" />
+        <module name="FullNameFormatterRegExp" />
+        <module name="BirthdayCalendar" />
+        <module name="GeometryCalculator" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -29,6 +30,7 @@
       <module name="MaskingInformation" target="11" />
       <module name="MaskingInformationReqExp" target="11" />
       <module name="PhoneCleaner" target="11" />
+      <module name="ReverseArray" target="11" />
       <module name="SplitText" target="11" />
       <module name="TotalEarningsCalculator" target="11" />
       <module name="TotalEarningsCalculatorReqExp" target="11" />
