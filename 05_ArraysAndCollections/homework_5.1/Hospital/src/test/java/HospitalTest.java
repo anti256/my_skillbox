@@ -21,7 +21,7 @@ class HospitalTest {
         int wrongEntriesCount = 0;
         float[] testHospitalData = Hospital.generatePatientsTemperatures(30);
         for (float entry : testHospitalData) {
-            if (entry < 32f && entry > 40f)
+            if (entry < 32f || entry > 40f)
                 wrongEntriesCount++;
         }
         assertEquals(0, wrongEntriesCount, "Температуры выходят за предельные значения");
