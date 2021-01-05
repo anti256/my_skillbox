@@ -6,12 +6,8 @@ public class Main {
 
     public static void main(String[] args) {
 
-      //информация
-      System.out.println("Введите команду в одном из форматов:" + System.lineSeparator() +
-          "ADD строка" + System.lineSeparator() + "ADD номер_позиции строка" +
-          System.lineSeparator() + "EDIT номер_позиции строка" + System.lineSeparator()
-          + "LIST" + System.lineSeparator() + "DELETE номер_позиции" + System.lineSeparator()
-          + "нумерация позиций начинается с нуля" + System.lineSeparator() + "0 - выход");
+      printInfo();
+
       Scanner scanner = new Scanner(System.in);
         while (true) {//бесконечный цикл
           String input = scanner.nextLine();//сканер по строкам
@@ -45,5 +41,14 @@ public class Main {
                  break;
           }
         }
+    }
+
+    private static void printInfo() {
+        //информация
+        System.out.println("Введите команду в одном из форматов:" + System.lineSeparator() +
+                "ADD строка" + System.lineSeparator() + "ADD номер_позиции строка" +
+                System.lineSeparator() + "EDIT номер_позиции строка" + System.lineSeparator()
+                + "LIST" + System.lineSeparator() + "DELETE номер_позиции" + System.lineSeparator()
+                + "нумерация позиций начинается с нуля" + System.lineSeparator() + "0 - выход");
     }
 }
