@@ -2,6 +2,8 @@ import java.util.Scanner;
 
 public class Main {
     public static final String WRONG_EMAIL_ANSWER = "Неверный формат email";
+    public static final String WRONG_COMMAND = "Неверный формат команды";
+    public static EmailList emailList = new EmailList();
     
     /* TODO:
         Пример вывода списка Email, после ввода команды LIST в консоль:
@@ -18,16 +20,46 @@ public class Main {
     */
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+      printInfo();
+      Scanner scanner = new Scanner(System.in);
         
         while (true) {
             String input = scanner.nextLine();
             if (input.equals("0")) {
                 break;
             }
+
+            //преобразуем введенное в массив строк по разделителю пробелу
+            String[] strokaArray = input.split(" ");
+
+            //обработка первого слова
+            //использовать switch case нецелесообразно, т.к. условий мало и они каждое состоит из нескольких условий
+            //если команда состоит из двух слов и первое из них ADD
+            if ((strokaArray.length == 2) && (strokaArray[0].equals("ADD"))){
+              //отсылаем в класс на обработку в список
+              emailList.add(strokaArray[1]);
+            } else {
+                   //если команда из одного слова и это LIST
+                    if ((strokaArray.length == 1) && (strokaArray[0].equals("LIST"))){
+                    for (String s: emailList.getSortedEmails()) {System.out.println(s);}
+                     } else {System.out.println(WRONG_COMMAND);//иначе команда неправильная
+                        helpInfo();}//выводим справку о формате команд
+                  }
             
-            //TODO: write code here
-            
-        }
+        }//конец бесконечного цикла
     }
+
+  private static void printInfo() {
+    //информация
+    System.out.println("Введите команду в одном из форматов:" + System.lineSeparator() +
+        "Добавление адреса - ADD email-адрес" + System.lineSeparator() +
+        "Вывод списка адресов - LIST" + System.lineSeparator() + "Выход - 0");
+  }
+
+  private static void helpInfo(){
+      //формат команд
+    System.out.println("Добавление адреса - ADD email-адрес" + System.lineSeparator() +
+        "Вывод списка адресов - LIST" + System.lineSeparator() + "Выход - 0");
+  }
+
 }
