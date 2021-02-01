@@ -1,6 +1,6 @@
 public class ValidationWord {
 
-  public static String isNumberValid (String stroka){
+  public static String wordToValidPhone (String stroka){
     stroka = stroka.replaceAll("[^0-9+]","");//убираем из строки все нецифры и плюсы
     //если длина оставшейся строки меньше 10 и больше 12, формат номера неверный
 

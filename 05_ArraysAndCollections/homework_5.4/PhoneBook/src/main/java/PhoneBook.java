@@ -57,7 +57,7 @@ public class PhoneBook {
     public void addContact(String phone, String name) {
         // проверьте корректность формата имени и телефона
         if ((name.matches("^[A-ZА-Я]{1}[a-zA-Zа-яА-Я0-9_-]*")) &&
-            !(ValidationWord.isNumberValid(phone).equals("Mistake"))) {
+            !(ValidationWord.wordToValidPhone(phone).equals("Mistake"))) {
             // если такой номер уже есть в списке, то перезаписать имя абонента
             String nameFromPhone = getClearNameByPhone(phone); //поиск имени соответствующему телефону
             Set<String> phoneFromName = getClearPhonesByName(name);//список телефонов соответствующих имени
