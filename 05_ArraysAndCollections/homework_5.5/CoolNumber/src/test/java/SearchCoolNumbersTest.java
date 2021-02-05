@@ -96,7 +96,7 @@ class SearchCoolNumbersTest {
     @DisplayName("Поиск по TreeSet - номера нет в списке")
     void treeSetSearchNotFound() {
         TreeSet<String> set = new TreeSet<>(NUMBERS);
-        assertFalse(CoolNumbers.bruteForceSearchInTreeSet(set, EXISTED_CAR_NUMBER),
+        assertFalse(CoolNumbers.bruteForceSearchInTreeSet(set,  NOT_CAR_NUMBER),
                 "Номера нет в списке, но метод его нашел.");
     }
 }
