@@ -4,8 +4,9 @@ import java.util.HashSet;
 import java.util.TreeSet;
 
 public class Main {
-  static String FIRST_NUMBER = "Н555СР116";//константа правильный номер - поиск true
-  static String SECOND_NUMBER = "Н567СР116";//константа неправильный номер - поиск false
+  static String FIRST_NUMBER = "А111АА02";//константа правильный номер - поиск true
+  static String SECOND_NUMBER = "Х999ХХ99";//константа неправильный номер - поиск false
+  static String THIRD_NUMBER = "Н555ТТ116";
 
   //метод поиска перебором в ArrayList
   private static void arraySearchBrute (ArrayList aList, String numberCar){
@@ -73,13 +74,21 @@ public class Main {
       //методы поисков
       arraySearchBrute(arrayListNumber, FIRST_NUMBER);
       arraySearchBrute(arrayListNumber, SECOND_NUMBER);
+      arraySearchBrute(arrayListNumber, THIRD_NUMBER);
       Collections.sort(arrayListNumber);//бинарный посик корректно работает только с отсортированным списком
+      System.out.println("Сортировка");
+      arraySearchBrute(arrayListNumber, FIRST_NUMBER);
+      arraySearchBrute(arrayListNumber, SECOND_NUMBER);
+      arraySearchBrute(arrayListNumber, THIRD_NUMBER);
       arraySearchBinar(arrayListNumber,FIRST_NUMBER);
       arraySearchBinar(arrayListNumber,SECOND_NUMBER);
+      arraySearchBinar(arrayListNumber,THIRD_NUMBER);
       hashsetSearchBrute(hashSetNumber, FIRST_NUMBER);
       hashsetSearchBrute(hashSetNumber, SECOND_NUMBER);
+      hashsetSearchBrute(hashSetNumber, THIRD_NUMBER);
       treesetSearchBrute(treeSetNumber, FIRST_NUMBER);
       treesetSearchBrute(treeSetNumber, SECOND_NUMBER);
+      treesetSearchBrute(treeSetNumber, THIRD_NUMBER);
     }
 }
 
