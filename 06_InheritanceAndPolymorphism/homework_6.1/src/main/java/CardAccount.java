@@ -1,6 +1,8 @@
 public class CardAccount extends BankAccount {
 
   //снять
+  //если снимаемая сумма больше нуля и меньше или равна имеющийся
+  //снимается 1,01 от снимаемой суммы
   public void take(double amountToTake) {
     if ((amountToTake > 0) && (amountToTake <= amount)){amount -= amountToTake*1.01;}
   }
