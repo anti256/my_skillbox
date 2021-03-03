@@ -28,6 +28,7 @@
       <module fileurl="file://$PROJECT_DIR$/05_ArraysAndCollections/homework_5.1/TwoDimensionalArray/TwoDimensionalArray.iml" filepath="$PROJECT_DIR$/05_ArraysAndCollections/homework_5.1/TwoDimensionalArray/TwoDimensionalArray.iml" />
       <module fileurl="file://$PROJECT_DIR$/03_ObjectsAndClasses/airport/airport.iml" filepath="$PROJECT_DIR$/03_ObjectsAndClasses/airport/airport.iml" />
       <module fileurl="file://$PROJECT_DIR$/04_NumbersStringsAndDates/homework_4.2/homework_4.2.iml" filepath="$PROJECT_DIR$/04_NumbersStringsAndDates/homework_4.2/homework_4.2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/06_InheritanceAndPolymorphism/homework_6.4/homework_6.4.iml" filepath="$PROJECT_DIR$/06_InheritanceAndPolymorphism/homework_6.4/homework_6.4.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/java_basics.iml" filepath="$PROJECT_DIR$/.idea/java_basics.iml" />
     </modules>
   </component>
