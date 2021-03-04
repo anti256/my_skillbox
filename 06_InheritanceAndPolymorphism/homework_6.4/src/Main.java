@@ -24,7 +24,8 @@ public class Main {
         System.out.println("Компания - " + company.getCompanyName() + System.lineSeparator() +
             "Количество сотрудников - " + company.staff.size());//информация о компании
         for (int i = 0; i < company.staff.size(); i++){
-          System.out.println((i+1) + "." + company.staff.get(i).name + " - " + company.staff.get(i).status);
+          System.out.println((i+1) + "." + company.staff.get(i).name + " - " +
+              company.staff.get(i).status +  " - " + company.staff.get(i).workPlaceName);
         }
         continue;
       }
