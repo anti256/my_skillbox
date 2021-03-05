@@ -25,7 +25,7 @@ public class Main {
             "Количество сотрудников - " + company.staff.size());//информация о компании
         for (int i = 0; i < company.staff.size(); i++){
           System.out.println((i+1) + "." + company.staff.get(i).name + " - " +
-              company.staff.get(i).status +  " - " + company.staff.get(i).workPlaceName);
+              company.staff.get(i).status + " - " + company.staff.get(i).getWorkPlace().getCompanyName());
         }
         continue;
       }

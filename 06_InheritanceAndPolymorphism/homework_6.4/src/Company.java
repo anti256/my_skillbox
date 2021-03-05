@@ -49,7 +49,6 @@ public class Company{
     staff.add(operator);
     //сотруднику прописывается поле указатель на компанию
     staff.get(staff.indexOf(operator)).workPlace = Company.this;
-    staff.get(staff.indexOf(operator)).workPlaceName = Company.this.companyName;
   }
 
   private void hireManager (){//найм одного менеджера
@@ -57,7 +56,6 @@ public class Company{
     staff.add(manager);
     //сотруднику прописывается поле указатель на компанию
     staff.get(staff.indexOf(manager)).workPlace = Company.this;
-    staff.get(staff.indexOf(manager)).workPlaceName = Company.this.companyName;
   }
 
   private void hireTopManager (){//найм одного топ-менеджера
@@ -65,7 +63,6 @@ public class Company{
     staff.add(topmanager);
     //сотруднику прописывается поле указатель на компанию
     staff.get(staff.indexOf(topmanager)).workPlace = Company.this;
-    staff.get(staff.indexOf(topmanager)).workPlaceName = Company.this.companyName;
   }
 
   //метод пересмотра месячных зп всех сотрудников

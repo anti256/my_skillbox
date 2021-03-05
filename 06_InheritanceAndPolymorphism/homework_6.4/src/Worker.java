@@ -2,8 +2,10 @@ abstract class Worker implements Comparable<Worker> , Employee {//родител
 
   protected String name = "";//имя работника
   protected String status = "";//оператор - менеджер - топ-менеджер
+
+  public Company getWorkPlace() {return workPlace;}
+
   protected Company workPlace;//указатель на компанию
-  protected String workPlaceName = "";
 
   protected int salary = 0;//оклад
   protected int monthSalary = 0;//месячная зп
