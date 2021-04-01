@@ -23,15 +23,10 @@ public class Main {
           }
         }
       }*/
-        //TODO Метод должден вернуть список рейсов вылетающих в ближайшие два часа.
-      //наполнение ArrayList объектами-полетами
-      airport.getTerminals().forEach(p->flightList.addAll(p.getFlights()));
-        return flightList.stream().//стрим всех полетов
-            //фильтрация по типу отправление
-            filter(p->p.getType().equals(Type.DEPARTURE)).
-            //фильтрация по времени вылета - не более 2 часов
+        return airport.getTerminals().stream().flatMap(f -> f.getFlights().stream()).
+                filter(p->p.getType().equals(Type.DEPARTURE)).
             filter(a->(a.getDate().getTime()-System.currentTimeMillis())/3600000 < 2).
-            collect(Collectors.toList());//
+            collect(Collectors.toList());
     }
 
 }
