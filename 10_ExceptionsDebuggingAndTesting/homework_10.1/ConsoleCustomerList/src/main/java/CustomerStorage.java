@@ -15,6 +15,9 @@ public class CustomerStorage {
         final int INDEX_PHONE = 3;
 
         String[] components = data.split("\\s+");
+        if (components.length != 4){
+            throw new ArrayIndexOutOfBoundsException("Wrong number of arguments");
+        }
         String name = components[INDEX_NAME] + " " + components[INDEX_SURNAME];
         storage.put(name, new Customer(name, components[INDEX_PHONE], components[INDEX_EMAIL]));
     }
@@ -35,3 +38,9 @@ public class CustomerStorage {
         return storage.size();
     }
 }
+
+  /*1 Пропишите в проекте ConsoleCustomerList в классе CustomerStorage все возможные варианты защиты от некорректных данных и преждевременного завершения метода добавления addCustomer().
+    2 Программа должна выбрасывать исключения (Exception) при неверном:
+    - количестве компонентов в переданной строке с данными,
+    - формате номера телефона,
+    - формате email.*/

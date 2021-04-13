@@ -16,6 +16,13 @@ public class Customer {
     }
 
     public Customer(String name, String phone, String email) {
+        //проверка валидности email
+        if ((!email.matches("([A-Za-z0-9]+).([A-Za-z0-9]+)[@]([A-Za-z]+).([A-Za-z]+)"))) {
+         throw new IllegalArgumentException("Wrong e-mail format");
+        }
+        if (!phone.matches("\\+7[0-9]{10}")){//проверка валидного телефона
+         throw new IllegalArgumentException("Wrong phone number format");
+        }
         this.name = name;
         this.phone = phone;
         this.email = email;
