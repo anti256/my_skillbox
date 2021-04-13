@@ -113,7 +113,7 @@ public class Cat {
         }
     }
 
-    public Double getWeight() {
+    public double getWeight() {
         return weight;
     }
 

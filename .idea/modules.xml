@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/04_NumbersStringsAndDates/homework_4.4/AlphabetChar/AlphabetChar.iml" filepath="$PROJECT_DIR$/04_NumbersStringsAndDates/homework_4.4/AlphabetChar/AlphabetChar.iml" />
       <module fileurl="file://$PROJECT_DIR$/04_NumbersStringsAndDates/homework_4.6/BirthdayCalendar/BirthdayCalendar.iml" filepath="$PROJECT_DIR$/04_NumbersStringsAndDates/homework_4.6/BirthdayCalendar/BirthdayCalendar.iml" />
       <module fileurl="file://$PROJECT_DIR$/03_ObjectsAndClasses/Cat/Cat.iml" filepath="$PROJECT_DIR$/03_ObjectsAndClasses/Cat/Cat.iml" />
+      <module fileurl="file://$PROJECT_DIR$/10_ExceptionsDebuggingAndTesting/homework_10.1/ConsoleCustomerList/ConsoleCustomerList.iml" filepath="$PROJECT_DIR$/10_ExceptionsDebuggingAndTesting/homework_10.1/ConsoleCustomerList/ConsoleCustomerList.iml" />
       <module fileurl="file://$PROJECT_DIR$/05_ArraysAndCollections/homework_5.5/CoolNumber/CoolNumber.iml" filepath="$PROJECT_DIR$/05_ArraysAndCollections/homework_5.5/CoolNumber/CoolNumber.iml" />
       <module fileurl="file://$PROJECT_DIR$/05_ArraysAndCollections/homework_5.3/EmailList/EmailList.iml" filepath="$PROJECT_DIR$/05_ArraysAndCollections/homework_5.3/EmailList/EmailList.iml" />
       <module fileurl="file://$PROJECT_DIR$/04_NumbersStringsAndDates/homework_4.4/FullNameFormatter/FullNameFormatter.iml" filepath="$PROJECT_DIR$/04_NumbersStringsAndDates/homework_4.4/FullNameFormatter/FullNameFormatter.iml" />
@@ -33,6 +34,7 @@
       <module fileurl="file://$PROJECT_DIR$/04_NumbersStringsAndDates/homework_4.2/homework_4.2.iml" filepath="$PROJECT_DIR$/04_NumbersStringsAndDates/homework_4.2/homework_4.2.iml" />
       <module fileurl="file://$PROJECT_DIR$/06_InheritanceAndPolymorphism/homework_6.4/homework_6.4.iml" filepath="$PROJECT_DIR$/06_InheritanceAndPolymorphism/homework_6.4/homework_6.4.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/java_basics.iml" filepath="$PROJECT_DIR$/.idea/java_basics.iml" />
+      <module fileurl="file://$PROJECT_DIR$/10_ExceptionsDebuggingAndTesting/homework_10.2/SPBMetro/spb-metro.iml" filepath="$PROJECT_DIR$/10_ExceptionsDebuggingAndTesting/homework_10.2/SPBMetro/spb-metro.iml" />
     </modules>
   </component>
 </project>

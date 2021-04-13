@@ -8,33 +8,36 @@
         <outputRelativeToContentRoot value="true" />
         <module name="PhoneBook" />
         <module name="PhoneCleaner" />
-        <module name="LambdaExpressions7.2-Employee" />
         <module name="TotalEarningsCalculatorReqExp" />
-        <module name="ReverseArray" />
+        <module name="ConsoleCustomerList" />
         <module name="MaskingInformationReqExp" />
-        <module name="EmailList" />
         <module name="SplitText" />
         <module name="LambdaExpressions7.2-Airport" />
         <module name="MaskingInformation" />
-        <module name="TotalEarningsCalculator" />
         <module name="TrucksContainersAndBoxes" />
         <module name="FullNameFormatter" />
         <module name="01_sumdigits" />
+        <module name="BirthdayCalendar" />
+        <module name="GeometryCalculator" />
+        <module name="Hospital" />
+        <module name="LambdaExpressions7.1" />
+        <module name="LambdaExpressions7.2-Employee" />
+        <module name="ReverseArray" />
+        <module name="EmailList" />
+        <module name="spb-metro" />
+        <module name="TotalEarningsCalculator" />
         <module name="FullNameFormatterRegExp" />
         <module name="Inheritance1" />
         <module name="CoolNumber" />
-        <module name="BirthdayCalendar" />
         <module name="TwoDimensionalArray" />
-        <module name="GeometryCalculator" />
         <module name="Inheritance3" />
-        <module name="Hospital" />
         <module name="TodoList" />
-        <module name="LambdaExpressions7.1" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="01_sumdigits" target="11" />
       <module name="BirthdayCalendar" target="11" />
+      <module name="ConsoleCustomerList" target="11" />
       <module name="CoolNumber" target="11" />
       <module name="EmailList" target="11" />
       <module name="FullNameFormatter" target="11" />
@@ -51,6 +54,7 @@
       <module name="PhoneBook" target="11" />
       <module name="PhoneCleaner" target="11" />
       <module name="ReverseArray" target="11" />
+      <module name="spb-metro" target="11" />
       <module name="SplitText" target="11" />
       <module name="TodoList" target="11" />
       <module name="TotalEarningsCalculator" target="11" />
