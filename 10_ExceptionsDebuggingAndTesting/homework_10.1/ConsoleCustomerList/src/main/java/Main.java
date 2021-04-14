@@ -18,15 +18,15 @@ public class Main {
               String command = scanner.nextLine();
               String[] tokens = command.split("\\s+", 2);
 
-              if (tokens[0].equals("add")) {
+              if ("add".equals(tokens[0])) {
                 executor.addCustomer(tokens[1]);
-              } else if (tokens[0].equals("list")) {
+              } else if ("list".equals(tokens[0])) {
                 executor.listCustomers();
-              } else if (tokens[0].equals("remove")) {
+              } else if ("remove".equals(tokens[0])) {
                 executor.removeCustomer(tokens[1]);
-              } else if (tokens[0].equals("count")) {
+              } else if ("count".equals(tokens[0])) {
                 System.out.println("There are " + executor.getCount() + " customers");
-              } else if (tokens[0].equals("help")) {
+              } else if ("help".equals(tokens[0])) {
                 System.out.println(helpText);
               } else {
                 System.out.println(COMMAND_ERROR);
