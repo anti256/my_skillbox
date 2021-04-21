@@ -55,7 +55,7 @@ public class Main {
         }
     }
 
-    private static Station takeStation(String message) {
+    private static Station takeStation(String message) {//возвращает объект-станцию по названию
         for (; ; ) {
             System.out.println(message);
             String line = scanner.nextLine().trim();
@@ -80,6 +80,11 @@ public class Main {
             parseStations(stationsObject);
 
             JSONArray connectionsArray = (JSONArray) jsonData.get("connections");
+            /* создает json-массив узлов метро(узел - массив из двух записей-станций)
+            структура файла - массив [] массивов [] внутри которых две или три записи{}, каждая из которых
+            состоит из двух пар ключ-значение - "line": 2,
+                                                 "station": "Невский проспект"
+            */
             parseConnections(connectionsArray);
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -87,22 +92,35 @@ public class Main {
     }
 
     private static void parseConnections(JSONArray connectionsArray) {
-        connectionsArray.forEach(connectionObject ->
+        connectionsArray.forEach(connectionObject ->//перебирает все элементы-массивы с парой записей-станций
+            /*
+        [
+         {
+          "line": 2,
+          "station": "Невский проспект"
+         },
+         {
+         "line": 3,
+         "station": "Гостиный двор"
+         }
+       ]
+             */
         {
-            JSONArray connection = (JSONArray) connectionObject;
+            JSONArray connection = (JSONArray) connectionObject;//connection это массив из двух записей-станций
             List<Station> connectionStations = new ArrayList<>();
-            connection.forEach(item ->
+            connection.forEach(item ->//перебирает все записи-станции в массивах-узлах метро
             {
                 JSONObject itemObject = (JSONObject) item;
-                int lineNumber = ((Long) itemObject.get("line")).intValue();
-                String stationName = (String) itemObject.get("station");
+                int lineNumber = ((Long) itemObject.get("line")).intValue();//номер линии в записи-станции
+                String stationName = (String) itemObject.get("station");//название станции в записи-станции
 
+                //создает объект-станцию с указателем на элемент из stationIndex по имени станции и номеру линии
                 Station station = stationIndex.getStation(stationName, lineNumber);
-                if (station == null) {
+                if (station == null) {//обработка существования полученной станции в stationIndex
                     throw new IllegalArgumentException("core.Station " +
                             stationName + " on line " + lineNumber + " not found");
-                }
-                connectionStations.add(station);
+                }//если станции нет в stationIndex - выкидывается исключение с сообщением
+                connectionStations.add(station);//создается ArrayList из двух элементов-станций, соответсвующих станциям-пересадкам метро
             });
             stationIndex.addConnection(connectionStations);
         });

@@ -5,11 +5,11 @@ import java.util.List;
 
 public class Line implements Comparable<Line>
 {
-    private int number;
-    private String name;
-    private List<Station> stations;
+    private int number;//номер линии
+    private String name;//название линии
+    private List<Station> stations;//список станции
 
-    public Line(int number, String name)
+    public Line(int number, String name)//конструктор
     {
         this.number = number;
         this.name = name;

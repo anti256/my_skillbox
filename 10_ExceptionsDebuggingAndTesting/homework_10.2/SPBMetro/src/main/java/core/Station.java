@@ -2,10 +2,10 @@ package core;
 
 public class Station implements Comparable<Station>
 {
-    private Line line;
-    private String name;
+    private Line line;//ссылка на линию
+    private String name;//название станции
 
-    public Station(String name, Line line)
+    public Station(String name, Line line)//конструктор
     {
         this.name = name;
         this.line = line;
