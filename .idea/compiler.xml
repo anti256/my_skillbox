@@ -34,33 +34,5 @@
         <module name="TodoList" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="01_sumdigits" target="11" />
-      <module name="BirthdayCalendar" target="11" />
-      <module name="ConsoleCustomerList" target="11" />
-      <module name="CoolNumber" target="11" />
-      <module name="EmailList" target="11" />
-      <module name="FullNameFormatter" target="11" />
-      <module name="FullNameFormatterRegExp" target="11" />
-      <module name="GeometryCalculator" target="11" />
-      <module name="Hospital" target="11" />
-      <module name="Inheritance1" target="11" />
-      <module name="Inheritance3" target="11" />
-      <module name="LambdaExpressions7.1" target="11" />
-      <module name="LambdaExpressions7.2-Airport" target="11" />
-      <module name="LambdaExpressions7.2-Employee" target="11" />
-      <module name="MaskingInformation" target="11" />
-      <module name="MaskingInformationReqExp" target="11" />
-      <module name="PhoneBook" target="11" />
-      <module name="PhoneCleaner" target="11" />
-      <module name="ReverseArray" target="11" />
-      <module name="spb-metro" target="11" />
-      <module name="SplitText" target="11" />
-      <module name="TodoList" target="11" />
-      <module name="TotalEarningsCalculator" target="11" />
-      <module name="TotalEarningsCalculatorReqExp" target="11" />
-      <module name="TrucksContainersAndBoxes" target="11" />
-      <module name="TwoDimensionalArray" target="11" />
-    </bytecodeTargetLevel>
   </component>
 </project>
