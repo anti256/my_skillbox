@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="INFO">
+  <appenders>
+
+    <File name="searchAll" fileName="logs/search.log">
+      <PatternLayout>
+        <Pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n</Pattern>
+      </PatternLayout>
+      <ThresholdFilter level="warn" onMatch="DENY" onMismatch="ACCEPT"/>
+    </File>
+
+    <File name="input_errors" fileName="logs/input_errors.log">
+      <PatternLayout>
+        <Pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n</Pattern>
+      </PatternLayout>
+      <ThresholdFilter level="error" onMatch="DENY" onMismatch="ACCEPT"/>
+    </File>
+
+    <File name="exceptions" fileName="logs/exceptions.log">
+      <PatternLayout>
+        <Pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n</Pattern>
+      </PatternLayout>
+      <ThresholdFilter level="fatal" onMatch="DENY" onMismatch="ACCEPT"/>
+    </File>
+
+  </appenders>
+
+  <Loggers>
+    <Root level="info">
+      <AppenderRef ref="input_errors" level="warn"/>
+      <AppenderRef ref="exceptions" level="error"/>
+      <AppenderRef ref="searchAll" level="info"/>
+    </Root>
+  </Loggers>
+
+</configuration>
+<!--Сделайте три отдельных лога в папке logs проектa SPBMetro с помощью log4j2:
+
+logs/search.log — заполнять информацией о станциях, которые ищут (существующие станции),
+logs/input_errors.log — заполнять информацией об ошибочном вводе (несуществующие станции),
+logs/exceptions.log — вносить в лог информацию об исключениях (Exception).-->
+
+

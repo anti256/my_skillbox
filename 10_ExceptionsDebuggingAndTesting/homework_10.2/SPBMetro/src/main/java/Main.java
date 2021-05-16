@@ -1,16 +1,19 @@
 import core.Line;
 import core.Station;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 
 public class Main {
+    private static Logger logger;
+
     private static final String DATA_FILE = "src/main/resources/map.json";
     private static Scanner scanner;
 
@@ -19,17 +22,19 @@ public class Main {
     public static void main(String[] args) {
         RouteCalculator calculator = getRouteCalculator();
 
+        logger = LogManager.getRootLogger();
+
         System.out.println("Программа расчёта маршрутов метрополитена Санкт-Петербурга\n");
         scanner = new Scanner(System.in);
         for (; ; ) {
-            Station from = takeStation("Введите станцию отправления:");
-            Station to = takeStation("Введите станцию назначения:");
+                Station from = takeStation("Введите станцию отправления:");
+                Station to = takeStation("Введите станцию назначения:");
 
-            List<Station> route = calculator.getShortestRoute(from, to);
-            System.out.println("Маршрут:");
-            printRoute(route);
+                List<Station> route = calculator.getShortestRoute(from, to);
+                System.out.println("Маршрут:");
+                printRoute(route);
 
-            System.out.println("Длительность: " +
+                System.out.println("Длительность: " +
                     RouteCalculator.calculateDuration(route) + " минут");
         }
     }
@@ -57,13 +62,21 @@ public class Main {
 
     private static Station takeStation(String message) {//возвращает объект-станцию по названию
         for (; ; ) {
-            System.out.println(message);
-            String line = scanner.nextLine().trim();
-            Station station = stationIndex.getStation(line);
-            if (station != null) {
-                return station;
+            try{
+                System.out.println(message);
+                String line = scanner.nextLine().trim();
+                logger.info("Ввод" + " " + line);
+                Station station = stationIndex.getStation(line);
+                if (station != null) {
+                    return station;
+                }
+                logger.warn("Станция не найдена:" + line);
+                System.out.println("Станция не найдена :(");
+                throw new Exception("Станция не найдена:" + line);
             }
-            System.out.println("Станция не найдена :(");
+            catch (Exception ex){
+               logger.error(ex.toString());
+            }
         }
     }
 
@@ -158,8 +171,15 @@ public class Main {
             List<String> lines = Files.readAllLines(Paths.get(DATA_FILE));
             lines.forEach(line -> builder.append(line));
         } catch (Exception ex) {
-            ex.printStackTrace();
+           ex.printStackTrace();
         }
         return builder.toString();
     }
 }
+/*
+Сделайте три отдельных лога в папке logs проектa SPBMetro с помощью log4j2:
+
+logs/search.log — заполнять информацией о станциях, которые ищут (существующие станции),
+logs/input_errors.log — заполнять информацией об ошибочном вводе (несуществующие станции),
+logs/exceptions.log — вносить в лог информацию об исключениях (Exception).
+ */
