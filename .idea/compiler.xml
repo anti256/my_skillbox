@@ -17,6 +17,7 @@
         <module name="TrucksContainersAndBoxes" />
         <module name="FullNameFormatter" />
         <module name="01_sumdigits" />
+        <module name="SPBMetro" />
         <module name="BirthdayCalendar" />
         <module name="GeometryCalculator" />
         <module name="Hospital" />
@@ -24,7 +25,6 @@
         <module name="LambdaExpressions7.2-Employee" />
         <module name="ReverseArray" />
         <module name="EmailList" />
-        <module name="spb-metro" />
         <module name="TotalEarningsCalculator" />
         <module name="FullNameFormatterRegExp" />
         <module name="Inheritance1" />
@@ -34,5 +34,8 @@
         <module name="TodoList" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="spb-metro" target="11" />
+    </bytecodeTargetLevel>
   </component>
 </project>
