@@ -1,6 +1,5 @@
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.io.TempDir;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -9,9 +8,9 @@ import java.nio.file.Paths;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.LongStream;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.io.TempDir;
 
 public class FolderSizeTest {
     @TempDir
@@ -32,7 +31,7 @@ public class FolderSizeTest {
 
     @Test
     @DisplayName("Подсчет размера всех файлов в директории без поддиректорий")
-    void testFilesSizeInPlainDirectory()  {
+    void testFilesSizeInPlainDirectory() throws IOException {
         List<Path> files = fillDirectory(tempDirectory);
         writeContent(files);
 
