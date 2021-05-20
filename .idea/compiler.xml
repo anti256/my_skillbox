@@ -12,6 +12,7 @@
         <module name="ConsoleCustomerList" />
         <module name="MaskingInformationReqExp" />
         <module name="SplitText" />
+        <module name="read-movements-csv" />
         <module name="LambdaExpressions7.2-Airport" />
         <module name="MaskingInformation" />
         <module name="TrucksContainersAndBoxes" />
@@ -19,11 +20,13 @@
         <module name="01_sumdigits" />
         <module name="SPBMetro" />
         <module name="BirthdayCalendar" />
+        <module name="folder-size" />
         <module name="GeometryCalculator" />
         <module name="Hospital" />
         <module name="LambdaExpressions7.1" />
         <module name="LambdaExpressions7.2-Employee" />
         <module name="ReverseArray" />
+        <module name="folder-copy" />
         <module name="EmailList" />
         <module name="TotalEarningsCalculator" />
         <module name="FullNameFormatterRegExp" />
