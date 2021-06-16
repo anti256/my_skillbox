@@ -29,6 +29,7 @@
         <module name="folder-copy" />
         <module name="EmailList" />
         <module name="TotalEarningsCalculator" />
+        <module name="html-read" />
         <module name="FullNameFormatterRegExp" />
         <module name="Inheritance1" />
         <module name="CoolNumber" />
