@@ -32,6 +32,7 @@
         <module name="html-read" />
         <module name="FullNameFormatterRegExp" />
         <module name="Inheritance1" />
+        <module name="MSK-metro" />
         <module name="CoolNumber" />
         <module name="TwoDimensionalArray" />
         <module name="Inheritance3" />
@@ -39,6 +40,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="Moskow-Metro" target="16" />
       <module name="spb-metro" target="11" />
     </bytecodeTargetLevel>
   </component>
