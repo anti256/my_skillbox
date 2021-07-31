@@ -27,6 +27,7 @@
         <module name="LambdaExpressions7.2-Employee" />
         <module name="ReverseArray" />
         <module name="folder-copy" />
+        <module name="SQL-query" />
         <module name="EmailList" />
         <module name="TotalEarningsCalculator" />
         <module name="html-read" />
