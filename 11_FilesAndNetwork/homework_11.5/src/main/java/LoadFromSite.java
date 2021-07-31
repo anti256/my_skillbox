@@ -10,7 +10,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
 public class LoadFromSite {
-  private TreeMap<String, List<String>> loadStations;//ключ - индекс линии, значение - список станций на линии
+  private TreeMap<IndexString, List<String>> loadStations;//ключ - индекс линии, значение - список станций на линии
   private LinkedHashMap<String, String> loadLines;//ключ - индекс линии, значение - название линии
   private HashSet<TreeSet<String>> loadConnections;//список узлов пересадки
   //переход между двумя станциями, состоит из двух станций
@@ -18,7 +18,7 @@ public class LoadFromSite {
   //любая из указанных станций перехода
 
   //геттеры
-  public TreeMap<String, List<String>> getLoadStations() {return loadStations;}
+  public TreeMap<IndexString, List<String>> getLoadStations() {return loadStations;}
 
   public LinkedHashMap<String, String> getLoadLines() {
     return loadLines;
@@ -27,7 +27,7 @@ public class LoadFromSite {
   public HashSet<TreeSet<String>> getLoadConnections() {return loadConnections;}
 
   public LoadFromSite(String siteUrl){//конструктор
-    loadStations = new TreeMap<String, List<String>>();
+    loadStations = new TreeMap<IndexString, List<String>>();
 
     loadLines = new LinkedHashMap<>();
     loadConnections = new HashSet<TreeSet<String>>();
@@ -49,7 +49,7 @@ public class LoadFromSite {
         Elements elementsStation = doc.select(selectString);
         List<String> stationName = new ArrayList<>();//список станций определенной линии
         elementsStation.forEach(element1 -> stationName.add(element1.text()));//наполняем list названиями станций
-        loadStations.put(numberLine,stationName);//наполнение map станций парой индекс линии-list с названиями станций
+        loadStations.put(new IndexString(numberLine),stationName);//наполнение map станций парой индекс линии-list с названиями станций
 
         //переходы
         for (int j = 0; j < stationName.size(); j++){//проход по всем станциям определенной линии (по list'у)

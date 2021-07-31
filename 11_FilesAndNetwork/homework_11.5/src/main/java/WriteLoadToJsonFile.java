@@ -10,6 +10,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.TreeMap;
 import java.util.TreeSet;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -41,11 +42,12 @@ public class WriteLoadToJsonFile {
   //структура - "stations":объекты
   //где объекты - "индекс линии":массив
   //где массив - массив станций определенной линии
-  private static void stationToJson (Map<String, List<String>> loadMap){
+  private static void stationToJson (TreeMap<IndexString, List<String>> loadMap){
     JSONObject defaultStation = new JSONObject();//json-объект
     for(Entry entry: loadMap.entrySet()) {
       //получить ключ
-      String lineIndex = entry.getKey().toString();//"индекс линии"
+      IndexString is = (IndexString) entry.getKey();
+      String lineIndex = is.getValue();//"индекс линии"
       //создание json-массива станций определенной линии
       JSONArray defaultJsonArray = new JSONArray();
       defaultJsonArray.addAll((ArrayList) entry.getValue());

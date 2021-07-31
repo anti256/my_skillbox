@@ -1,3 +1,5 @@
+
+
 public class Main {
 
   public static void main(String[] args) {
@@ -5,6 +7,11 @@ public class Main {
     final String JSON_DATA = "./11_FilesAndNetwork/homework_11.5/src/data";//директория для записи json
     final String JSON_DATA_FILE = "mapMSK.json";//имя файла json
     LoadFromSite lfs = new LoadFromSite(SITE_METRO);//чтение информации из файла
+
+    /*for (Map.Entry<IndexString, List<String>> entry : lfs.getLoadStations().entrySet()) {
+      System.out.println(entry.getKey().getValue() + " - " + entry.getKey().hashCode());
+    }*/
+
     WriteLoadToJsonFile.writeToJsonFile(lfs,JSON_DATA,JSON_DATA_FILE);//запись информации в json
     LoadFromJson lfj = new LoadFromJson(JSON_DATA + "/" + JSON_DATA_FILE);
     //lfj.getLoadLinesJson().entrySet().forEach(a-> System.out.println(a.getValue()));
