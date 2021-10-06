@@ -13,16 +13,12 @@ public class Main {
 
     List<Student> listStudent = null;
     List<Subscription> listSubscription = null;
+    List<PurchaseList> listPurchaseList = null;
     try (Session session = sessionFactory.openSession()){
       session.beginTransaction();
 
       Query query = session.createQuery( "FROM Student");
       listStudent = (List<Student>) query.getResultList();
-
-      Query query1 = session.createQuery("FROM Subscription");
-      listSubscription = (List<Subscription>) query1.getResultList();
-      System.out.println(listSubscription.toString());
-
 
     }
     catch (Throwable th){
@@ -34,25 +30,23 @@ public class Main {
     DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
 
     System.out.println("Студенты:");
-    for (int i=0; i < listStudent.size(); i++){
-      System.out.println(" - " + listStudent.get(i).getName());
-      Student st = listStudent.get(i);
-      listSubscription.forEach(a->{if(a.getId().getStudent().equals(st)){
-        System.out.println("\t\t- " + a.getId().getCourse().getName() +
-            " - преподаватель " + a.getId().getCourse().getTeacher().getName() +
-            " - подписка " + df.format(a.getSubscriptionDate()) +
-            " - цена подписки " + a.getId().getCourse().getPrice());
-      }});
-
-    }
-
-
+    for (int i=0; i < listStudent.size(); i++) {
+      System.out.println(
+          " - " + listStudent.get(i).getName() + " ,id - " + listStudent.get(i).getId());
+      if (listStudent.get(i) != null) {
+        System.out.println("\tподписки:");
+      listStudent.get(i).getSubscriptionList().forEach(a-> System.out.println("\t\t" + a.getCourse().getId() +
+          " " + a.getCourse().getName() + " ;регистрация - " + df.format(a.getSubscriptionDate())
+      + " " + " ;стоимость - " + a.getCourse().getPrice() + " ;преподаватель - " +
+          a.getCourse().getTeacher().getName()));}
+      }
 
   }
 }
 
 /*
-Подключите в ваш проект библиотеку Hibernate.
-Создайте класс для таблицы Courses.
-Напишите код, который выводит имя и количество студентов любого курса.
+список
+студент - имя - id
+    подписки:
+        курс_id - курс_name - регистрация - стоимость - учитель
  */

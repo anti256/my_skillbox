@@ -13,27 +13,6 @@ public class PurchaseListId implements Serializable {
   @Column(name = "course_name")
   private String courseName;
 
-//  @ManyToMany
-//  @JoinTable(name="courses",
-//      joinColumns=@JoinColumn(name="name"),
-//      inverseJoinColumns=@JoinColumn(name="id"))
-//  private List<SubscriptionId> subscriptionIds;
-//
-//  @ManyToMany
-//  @JoinTable(name="students",
-//      joinColumns=@JoinColumn (name="name"),
-//      inverseJoinColumns=@JoinColumn(name="id"))
-//  private List<SubscriptionId> subscriptionIds2;
-
-
-//  @ManyToOne(optional=false, cascade= CascadeType.ALL)
-//  @JoinColumn(name = "student_name")
-//  private Student student;
-//
-//  @ManyToOne(optional=false, cascade=CascadeType.ALL)
-//  @JoinColumn(name = "course_name")
-//  private Course course;
-
   public String getStudentName() {
     return studentName;
   }

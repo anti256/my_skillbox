@@ -1,55 +1,53 @@
 import java.io.Serializable;
-import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Embeddable;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 
 @Embeddable
 public class SubscriptionId implements Serializable {
 
-  @ManyToOne(optional=false, cascade=CascadeType.ALL)
-  @JoinColumn(name = "student_id")
-  private Student student;
+  @Column(name = "student_id")
+  private int studentId;
 
-  @ManyToOne(optional=false, cascade=CascadeType.ALL)
-  @JoinColumn(name = "course_id")
-  private Course course;
+  @Column(name = "course_id")
+  private int courseId;
 
-//  @ManyToMany
-//  @JoinTable(name="courses",
-//      joinColumns=@JoinColumn (name="id"),
-//      inverseJoinColumns=@JoinColumn(name="name"))
-//  private List<PurchaseListId> purchaseListIds;
-//
-//  @ManyToMany
-//  @JoinTable(name="students",
-//      joinColumns=@JoinColumn (name="id"),
-//      inverseJoinColumns=@JoinColumn(name="name"))
-//  private List<PurchaseListId> purchaseListIds2;
+  public int getStudentId() {
+    return studentId;
+  }
 
-  public Student getStudent() {return student;}
+  public void setStudentId(int studentId) {
+    this.studentId = studentId;
+  }
 
-  public void setStudent(Student student) {this.student = student;}
+  public int getCourseId() {
+    return courseId;
+  }
 
-  public Course getCourse() {return course;}
-
-  public void setCourse(Course course) {this.course = course;}
+  public void setCourseId(int courseId) {
+    this.courseId = courseId;
+  }
 
   @Override
   public boolean equals(Object o) {
-    if (this == o) {return true;}
-    if (o == null || getClass() != o.getClass()) {return false;}
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
 
     SubscriptionId that = (SubscriptionId) o;
 
-    if (getStudent() != that.getStudent()) {return false;}
-    return getCourse() == that.getCourse();
+    if (getStudentId() != that.getStudentId()) {
+      return false;
+    }
+    return getCourseId() == that.getCourseId();
   }
 
   @Override
   public int hashCode() {
-    int result = getStudent().hashCode();
-    result = 31 * result + getCourse().hashCode();
+    int result = getStudentId();
+    result = 31 * result + getCourseId();
     return result;
   }
 }

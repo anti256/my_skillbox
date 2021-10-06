@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -11,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -49,6 +51,9 @@ public class Course {
               inverseJoinColumns = @JoinColumn(name = "student_id")
   )
   private List<Student> students;
+
+  @OneToMany(mappedBy="course", fetch= FetchType.EAGER)
+  private List<Subscription> subscriptionList;
 
   public Integer getId() {
     return id;
@@ -129,5 +134,17 @@ public class Course {
 
   public void setStudents(List<Student> students) {
     this.students = students;
+  }
+
+  public void setTeacher(Teacher teacher) {
+    this.teacher = teacher;
+  }
+
+  public List<Subscription> getSubscriptionList() {
+    return subscriptionList;
+  }
+
+  public void setSubscriptionList(List<Subscription> subscriptionList) {
+    this.subscriptionList = subscriptionList;
   }
 }

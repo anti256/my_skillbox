@@ -1,8 +1,11 @@
 import java.util.Date;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name="purchaselist")
@@ -16,6 +19,30 @@ public class PurchaseList {
   @Column(name = "subscription_date")
   private Date subscriptionDate;
 
+  @ManyToOne(optional=false, cascade= CascadeType.ALL)
+  @Transient
+  public Student student;
+
+  @ManyToOne(optional=false, cascade= CascadeType.ALL)
+  @Transient
+  public Course course;
+
+  public PurchaseListId getId() {
+    return id;
+  }
+
+  public void setId(PurchaseListId id) {
+    this.id = id;
+  }
+
+  public Integer getPrice() {
+    return price;
+  }
+
+  public void setPrice(Integer price) {
+    this.price = price;
+  }
+
   public Date getSubscriptionDate() {
     return subscriptionDate;
   }
@@ -24,17 +51,19 @@ public class PurchaseList {
     this.subscriptionDate = subscriptionDate;
   }
 
-  public PurchaseListId getId() {return id;}
+  public Student getStudent() {
+    return student;
+  }
 
-  public void setId(PurchaseListId id) {this.id = id;}
+  public void setStudent(Student student) {
+    this.student = student;
+  }
 
-  public Integer getPrice() {return price;}
+  public Course getCourse() {
+    return course;
+  }
 
-  public void setPrice(Integer price) {this.price = price;}
-
-  public Date getSubsriptionDate() {return subscriptionDate;}
-
-  public void setSubsriptionDate(Date subsriptionDate) {
-    this.subscriptionDate = subsriptionDate;
+  public void setCourse(Course course) {
+    this.course = course;
   }
 }
