@@ -1,5 +1,6 @@
 import java.util.Date;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -33,8 +34,11 @@ public class Student {
       inverseJoinColumns = @JoinColumn(name = "course_id"))
   private List<Course> courses;
 
-  @OneToMany(mappedBy="student", fetch= FetchType.EAGER)
+  @OneToMany(mappedBy="student", fetch= FetchType.EAGER, cascade= CascadeType.ALL)
   private List<Subscription> subscriptionList;
+
+  @OneToMany(mappedBy="student", fetch= FetchType.EAGER, cascade= CascadeType.ALL)
+  private List<PurchaseList> purchaseLists;
 
   public List<Subscription> getSubscriptionList() {
     return subscriptionList;

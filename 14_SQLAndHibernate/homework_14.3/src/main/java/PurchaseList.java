@@ -1,5 +1,4 @@
 import java.util.Date;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
@@ -19,11 +18,11 @@ public class PurchaseList {
   @Column(name = "subscription_date")
   private Date subscriptionDate;
 
-  @ManyToOne(optional=false, cascade= CascadeType.ALL)
+  @ManyToOne(optional=false)
   @Transient
   public Student student;
 
-  @ManyToOne(optional=false, cascade= CascadeType.ALL)
+  @ManyToOne(optional=false)
   @Transient
   public Course course;
 

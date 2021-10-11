@@ -33,7 +33,7 @@ public class Course {
 
   private String description;
 
-  @ManyToOne(cascade = CascadeType.ALL)
+  @ManyToOne//(cascade = CascadeType.ALL)
   @JoinColumn(name = "teacher_id")
   private Teacher teacher;
 
@@ -45,14 +45,14 @@ public class Course {
   @Column(name = "price_per_hour")
   private Float pricePerHour;
 
-  @ManyToMany (cascade = CascadeType.ALL)
+  @ManyToMany (cascade = CascadeType.REFRESH)
   @JoinTable (name = "subscriptions",
               joinColumns = @JoinColumn(name = "course_id"),
               inverseJoinColumns = @JoinColumn(name = "student_id")
   )
   private List<Student> students;
 
-  @OneToMany(mappedBy="course", fetch= FetchType.EAGER)
+  @OneToMany(mappedBy="course", fetch= FetchType.EAGER, cascade= CascadeType.ALL)
   private List<Subscription> subscriptionList;
 
   public Integer getId() {
