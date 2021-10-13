@@ -4,7 +4,6 @@ import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
 @Entity
 @Table(name="purchaselist")
@@ -19,12 +18,12 @@ public class PurchaseList {
   private Date subscriptionDate;
 
   @ManyToOne(optional=false)
-  @Transient
-  public Student student;
+  //@Transient
+  private Student student;
 
   @ManyToOne(optional=false)
-  @Transient
-  public Course course;
+  //@Transient
+  private Course course;
 
   public PurchaseListId getId() {
     return id;
