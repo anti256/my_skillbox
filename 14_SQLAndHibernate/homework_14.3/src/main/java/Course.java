@@ -146,6 +146,14 @@ public class Course {
     return subscriptionList;
   }
 
+  public List<PurchaseList> getPurchaseLists() {
+    return purchaseLists;
+  }
+
+  public void setPurchaseLists(List<PurchaseList> purchaseLists) {
+    this.purchaseLists = purchaseLists;
+  }
+
   public void setSubscriptionList(List<Subscription> subscriptionList) {
     this.subscriptionList = subscriptionList;
   }

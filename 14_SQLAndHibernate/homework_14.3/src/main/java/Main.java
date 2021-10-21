@@ -12,8 +12,8 @@ public class Main {
     SessionFactory sessionFactory = SessionFactoryCreate.Create();
 
     List<Student> listStudent = null;
-    List<Subscription> listSubscription = null;
-    List<PurchaseList> listPurchaseList = null;
+    //List<Subscription> listSubscription = null;
+    //List<PurchaseList> listPurchaseList = null;
     try (Session session = sessionFactory.openSession()){
       session.beginTransaction();
 

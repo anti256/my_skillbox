@@ -25,6 +25,6 @@
         <mapping class="Subscription"></mapping>
         <mapping class="SubscriptionId"></mapping>
         <mapping class="PurchaseList"></mapping>
-        <mapping class="PurchaseListId"></mapping>
+        <!--<mapping class="PurchaseListId"></mapping> -->
     </session-factory>
 </hibernate-configuration>
