@@ -1,3 +1,4 @@
+import entity.Student;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.List;
@@ -12,12 +13,12 @@ public class Main {
     SessionFactory sessionFactory = SessionFactoryCreate.Create();
 
     List<Student> listStudent = null;
-    //List<Subscription> listSubscription = null;
-    //List<PurchaseList> listPurchaseList = null;
+    //List<entity.Subscription> listSubscription = null;
+    //List<entity.PurchaseList> listPurchaseList = null;
     try (Session session = sessionFactory.openSession()){
       session.beginTransaction();
 
-      Query query = session.createQuery( "FROM Student");
+      Query query = session.createQuery( "FROM entity.Student");
       listStudent = (List<Student>) query.getResultList();
 
     }

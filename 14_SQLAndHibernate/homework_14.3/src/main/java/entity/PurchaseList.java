@@ -1,19 +1,26 @@
+package entity;
+
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Column;
-import javax.persistence.Embeddable;
-import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.IdClass;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
 @Entity
 @Table(name="purchaselist")
-public class PurchaseList {
+@IdClass(PurchaseList.PurchaseListId.class)
+public class PurchaseList{
 
-  @EmbeddedId
-  private PurchaseListId id;
+  @Id
+  //@Column(name = "student_name")
+  private String studentName;
+
+  @Id
+  //@Column(name = "course_name")
+  private String courseName;
 
   private Integer price;
 
@@ -21,45 +28,25 @@ public class PurchaseList {
   private Date subscriptionDate;
 
   @ManyToOne(optional=false)
-  @Transient
   private Student student;
 
   @ManyToOne(optional=false)
-  @Transient
   private Course course;
 
-//  @Column(name = "student_name", insertable = false, updatable = false)
-//  private String studentName;
-//
-//  @Column(name = "course_name", insertable = false, updatable = false)
-//  private String courseName;
-
-//  public String getStudentName() {
-//    return student.getName();
-//  }
-
-//  public String getStudentName() {
-//    return studentName;
-//  }
-//
-//  public void setStudentName(String studentName) {
-//    this.studentName = studentName;
-//  }
-
-//  public String getCourseName() {
-//    return course.getName();
-//  }
-
-//  public void setCourseName(String courseName) {
-//    this.courseName = courseName;
-//  }
-
-  public PurchaseListId getId() {
-    return id;
+  public String getStudentName() {
+    return studentName;
   }
 
-  public void setId(PurchaseListId id) {
-    this.id = id;
+  public void setStudentName(String studentName) {
+    this.studentName = studentName;
+  }
+
+  public String getCourseName() {
+    return courseName;
+  }
+
+  public void setCourseName(String courseName) {
+    this.courseName = courseName;
   }
 
   public Integer getPrice() {
@@ -94,21 +81,14 @@ public class PurchaseList {
     this.course = course;
   }
 
-
-//  public String getCourseName() {
-//    return courseName;
-//  }
-
-  @Embeddable
+  //класс составного идентификатора
   public class PurchaseListId implements Serializable {
 
     static final long serialVersionUID = 1L;
 
-    //@ManyToOne(optional=false)
     @Column(name = "student_name")
     private String studentName;
 
-    //@ManyToOne(optional=false)
     @Column(name = "course_name")
     private String courseName;
 
@@ -152,6 +132,14 @@ public class PurchaseList {
       int result = getStudentName() != null ? getStudentName().hashCode() : 0;
       result = 31 * result + (getCourseName() != null ? getCourseName().hashCode() : 0);
       return result;
+    }
+
+    @Override
+    public String toString() {
+      return "PurchaseListId{" +
+          "studentName='" + studentName + '\'' +
+          ", courseName='" + courseName + '\'' +
+          '}';
     }
   }
 
