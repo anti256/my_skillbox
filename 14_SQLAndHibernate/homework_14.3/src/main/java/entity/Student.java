@@ -12,10 +12,13 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import lombok.Data;
 
 @Entity
 @Table (name = "students")
+@Data
 public class Student {
 
   @Id
@@ -38,49 +41,11 @@ public class Student {
   @OneToMany(mappedBy="student", cascade= CascadeType.ALL)//fetch= FetchType.EAGER, cascade= CascadeType.ALL)
   private List<Subscription> subscriptionList;
 
-  @OneToMany(mappedBy="student", cascade= CascadeType.ALL)//fetch= FetchType.EAGER, cascade= CascadeType.ALL)
-  private List<PurchaseList> purchaseLists;
+//  @OneToMany(mappedBy="student", cascade= CascadeType.ALL)//fetch= FetchType.EAGER, cascade= CascadeType.ALL)
+//  private List<PurchaseList> purchaseLists;
 
-  public List<PurchaseList> getPurchaseLists() {
-    return purchaseLists;
-  }
+  @OneToOne(optional=false, mappedBy="student")
+  private PurchaseList purchaseList;
 
-  public void setPurchaseLists(List<PurchaseList> purchaseLists) {
-    this.purchaseLists = purchaseLists;
-  }
-
-  public List<Subscription> getSubscriptionList() {
-    return subscriptionList;
-  }
-
-  public void setSubscriptionList(List<Subscription> subscriptionList) {
-    this.subscriptionList = subscriptionList;
-  }
-
-  public Integer getId() {return id;}
-
-  public List<Course> getCourses() {
-    return courses;
-  }
-
-  public void setCourses(List<Course> courses) {
-    this.courses = courses;
-  }
-
-  public void setId(Integer id) {this.id = id;}
-
-  public String getName() {return name;}
-
-  public void setName(String name) {this.name = name;}
-
-  public Integer getAge() {return age;}
-
-  public void setAge(Integer age) {this.age = age;}
-
-  public Date getRegistrationDate() {return registrationDate;}
-
-  public void setRegistrationDate(Date registrationDate) {
-    this.registrationDate = registrationDate;
-  }
 
 }

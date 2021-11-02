@@ -14,10 +14,13 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import lombok.Data;
 
 @Entity
 @Table(name = "Courses")
+@Data
 public class Course {
 
   @Id
@@ -46,8 +49,8 @@ public class Course {
   @Column(name = "price_per_hour")
   private Float pricePerHour;
 
-  @ManyToMany (cascade = CascadeType.REFRESH)
-  @JoinTable (name = "subscriptions",
+  @ManyToMany(cascade = CascadeType.REFRESH)
+  @JoinTable(name = "subscriptions",
               joinColumns = @JoinColumn(name = "course_id"),
               inverseJoinColumns = @JoinColumn(name = "student_id")
   )
@@ -56,107 +59,10 @@ public class Course {
   @OneToMany(mappedBy="course", cascade= CascadeType.ALL)//fetch= FetchType.EAGER, cascade= CascadeType.ALL)
   private List<Subscription> subscriptionList;
 
-  @OneToMany(mappedBy="course", cascade= CascadeType.ALL)//fetch= FetchType.EAGER, cascade= CascadeType.ALL)
-  private List<PurchaseList> purchaseLists;
+//  @OneToMany(mappedBy="course", cascade= CascadeType.ALL)//fetch= FetchType.EAGER, cascade= CascadeType.ALL)
+//  private List<PurchaseList> purchaseLists;
 
-  public Integer getId() {
-    return id;
-  }
-
-  public void setId(Integer id) {
-    this.id = id;
-  }
-
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public Integer getDuration() {
-    return duration;
-  }
-
-  public void setDuration(Integer duration) {
-    this.duration = duration;
-  }
-
-  public CourseType getType() {
-    return type;
-  }
-
-  public void setType(CourseType type) {
-    this.type = type;
-  }
-
-  public String getDescription() {
-    return description;
-  }
-
-  public void setDescription(String description) {
-    this.description = description;
-  }
-
-  public Teacher getTeacher() {
-    return teacher;
-  }
-
-  public void setTeacherId(Teacher teacher) {
-    this.teacher = teacher;
-  }
-
-  public Integer getStudentsCount() {
-    if (studentsCount==null){return 0;}
-    return studentsCount;}
-
-  public void setStudentsCount(Integer studentsCount) {
-    if (studentsCount==null){studentsCount = 0;}
-    this.studentsCount = studentsCount;
-  }
-
-  public Integer getPrice() {
-    return price;
-  }
-
-  public void setPrice(Integer price) {
-    this.price = price;
-  }
-
-  public Float getPricePerHour() {
-    return pricePerHour;
-  }
-
-  public void setPricePerHour(Float pricePerHour) {
-    this.pricePerHour = pricePerHour;
-  }
-
-  public List<Student> getStudents() {
-    return students;
-  }
-
-  public void setStudents(List<Student> students) {
-    this.students = students;
-  }
-
-  public void setTeacher(Teacher teacher) {
-    this.teacher = teacher;
-  }
-
-  public List<Subscription> getSubscriptionList() {
-    return subscriptionList;
-  }
-
-  public List<PurchaseList> getPurchaseLists() {
-    return purchaseLists;
-  }
-
-  public void setPurchaseLists(List<PurchaseList> purchaseLists) {
-    this.purchaseLists = purchaseLists;
-  }
-
-  public void setSubscriptionList(List<Subscription> subscriptionList) {
-    this.subscriptionList = subscriptionList;
-  }
+  @OneToOne(optional=false, mappedBy="course")
+  private PurchaseList purchaseList;
+  
 }

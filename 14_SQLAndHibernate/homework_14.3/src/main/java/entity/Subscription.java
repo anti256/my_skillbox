@@ -9,9 +9,14 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 @Table (name = "subscriptions")
+@Getter
+@Setter
 public class Subscription {
 
   @EmbeddedId
@@ -28,40 +33,9 @@ public class Subscription {
   @Column(name = "subscription_date")
   private Date subscriptionDate;
 
-  public Course getCourse() {
-    return course;
-  }
-
-  public void setCourse(Course course) {
-    this.course = course;
-  }
-
-  public Student getStudent() {
-    return student;
-  }
-
-  public void setStudent(Student student) {
-    this.student = student;
-  }
-
-  public SubscriptionId getId() {
-    return id;
-  }
-
-  public void setId(SubscriptionId id) {
-    this.id = id;
-  }
-
-  public Date getSubscriptionDate() {
-    return subscriptionDate;
-  }
-
-  public void setSubscriptionDate(Date subscriptionDate) {
-    this.subscriptionDate = subscriptionDate;
-  }
-
   //класс составного идентификатора
   @Embeddable
+  @Data
   public class SubscriptionId implements Serializable {
 
     @Column(name = "student_id")
@@ -70,21 +44,6 @@ public class Subscription {
     @Column(name = "course_id")
     private int courseId;
 
-    public int getStudentId() {
-      return studentId;
-    }
-
-    public void setStudentId(int studentId) {
-      this.studentId = studentId;
-    }
-
-    public int getCourseId() {
-      return courseId;
-    }
-
-    public void setCourseId(int courseId) {
-      this.courseId = courseId;
-    }
 
     @Override
     public boolean equals(Object o) {

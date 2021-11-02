@@ -2,145 +2,62 @@ package entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Formatter;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.Embeddable;
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.IdClass;
-import javax.persistence.ManyToOne;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
+@Data
+@AllArgsConstructor
+@EqualsAndHashCode
+@Embeddable
+class PurchaseListPK implements Serializable {
+  @Column(name = "student_name")
+  String studentName;
+
+  @Column(name = "course_name")
+  String courseName;
+
+  @SuppressWarnings("unused")
+  PurchaseListPK(){}
+}
 
 @Entity
 @Table(name="purchaselist")
-@IdClass(PurchaseList.PurchaseListId.class)
-public class PurchaseList{
+@Data
+public class PurchaseList implements Serializable{
 
-  @Id
-  //@Column(name = "student_name")
-  private String studentName;
+  @EmbeddedId
+  private PurchaseListPK id;
 
-  @Id
-  //@Column(name = "course_name")
-  private String courseName;
+  @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+  @JoinColumn(name = "student_name", referencedColumnName = "name", insertable = false, updatable = false)
+  private Student student;
 
-  private Integer price;
+  @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+  @JoinColumn(name = "course_name", referencedColumnName = "name", insertable = false, updatable = false)
+  private Course course;
+
+  @Column(name = "price")
+  private int price;
 
   @Column(name = "subscription_date")
   private Date subscriptionDate;
 
-  @ManyToOne(optional=false)
-  private Student student;
-
-  @ManyToOne(optional=false)
-  private Course course;
-
-  public String getStudentName() {
-    return studentName;
-  }
-
-  public void setStudentName(String studentName) {
-    this.studentName = studentName;
-  }
-
-  public String getCourseName() {
-    return courseName;
-  }
-
-  public void setCourseName(String courseName) {
-    this.courseName = courseName;
-  }
-
-  public Integer getPrice() {
-    return price;
-  }
-
-  public void setPrice(Integer price) {
-    this.price = price;
-  }
-
-  public Date getSubscriptionDate() {
-    return subscriptionDate;
-  }
-
-  public void setSubscriptionDate(Date subscriptionDate) {
-    this.subscriptionDate = subscriptionDate;
-  }
-
-  public Student getStudent() {
-    return student;
-  }
-
-  public void setStudent(Student student) {
-    this.student = student;
-  }
-
-  public Course getCourse() {
-    return course;
-  }
-
-  public void setCourse(Course course) {
-    this.course = course;
-  }
-
-  //класс составного идентификатора
-  public class PurchaseListId implements Serializable {
-
-    static final long serialVersionUID = 1L;
-
-    @Column(name = "student_name")
-    private String studentName;
-
-    @Column(name = "course_name")
-    private String courseName;
-
-    public String getStudentName() {
-      return studentName;
-    }
-
-    public void setStudentName(String studentName) {
-      this.studentName = studentName;
-    }
-
-    public String getCourseName() {
-      return courseName;
-    }
-
-    public void setCourseName(String courseName) {
-      this.courseName = courseName;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-      if (this == o) {
-        return true;
-      }
-      if (o == null || getClass() != o.getClass()) {
-        return false;
-      }
-
-      PurchaseListId that = (PurchaseListId) o;
-
-      if (getStudentName() != null ? !getStudentName().equals(that.getStudentName())
-          : that.getStudentName() != null) {
-        return false;
-      }
-      return getCourseName() != null ? getCourseName().equals(that.getCourseName())
-          : that.getCourseName() == null;
-    }
-
-    @Override
-    public int hashCode() {
-      int result = getStudentName() != null ? getStudentName().hashCode() : 0;
-      result = 31 * result + (getCourseName() != null ? getCourseName().hashCode() : 0);
-      return result;
-    }
-
-    @Override
-    public String toString() {
-      return "PurchaseListId{" +
-          "studentName='" + studentName + '\'' +
-          ", courseName='" + courseName + '\'' +
-          '}';
-    }
+  @Override
+  public String toString() {
+    return new Formatter().format(
+        "PurchaseList (studentName: %s, courseName: %s, subscriptionDate: %3$td.%3$tm.%3$tY)",
+        id.studentName, id.courseName, subscriptionDate).toString();
   }
 
 }
