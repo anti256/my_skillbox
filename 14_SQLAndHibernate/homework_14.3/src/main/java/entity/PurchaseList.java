@@ -3,14 +3,10 @@ package entity;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Formatter;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,13 +18,13 @@ import lombok.EqualsAndHashCode;
 @Embeddable
 class PurchaseListPK implements Serializable {
   @Column(name = "student_name")
-  String studentName;
+  private String studentName;
 
   @Column(name = "course_name")
-  String courseName;
+  private String courseName;
 
-  @SuppressWarnings("unused")
-  PurchaseListPK(){}
+  @SuppressWarnings("unused")//подавляет unused предупреждения компилятора
+  private PurchaseListPK(){}
 }
 
 @Entity
@@ -39,13 +35,13 @@ public class PurchaseList implements Serializable{
   @EmbeddedId
   private PurchaseListPK id;
 
-  @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-  @JoinColumn(name = "student_name", referencedColumnName = "name", insertable = false, updatable = false)
-  private Student student;
+  //@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+//  @JoinColumn(name = "student_name", referencedColumnName = "name", insertable = false, updatable = false)
+//  private Student student;
 
-  @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-  @JoinColumn(name = "course_name", referencedColumnName = "name", insertable = false, updatable = false)
-  private Course course;
+  //@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+//  @JoinColumn(name = "course_name", referencedColumnName = "name", insertable = false, updatable = false)
+//  private Course course;
 
   @Column(name = "price")
   private int price;
@@ -57,7 +53,7 @@ public class PurchaseList implements Serializable{
   public String toString() {
     return new Formatter().format(
         "PurchaseList (studentName: %s, courseName: %s, subscriptionDate: %3$td.%3$tm.%3$tY)",
-        id.studentName, id.courseName, subscriptionDate).toString();
+        id.getStudentName(), id.getCourseName(), subscriptionDate).toString();
   }
 
 }
