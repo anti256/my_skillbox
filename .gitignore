@@ -157,3 +157,4 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.toptal.com/developers/gitignore/api/windows,java,jetbrains
+/14_SQLAndHibernate/homework_14_4/src/test/java/

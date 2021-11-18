@@ -3,7 +3,7 @@ import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 @Embeddable
-public class PurchaseListId implements Serializable {
+public class PurchaseListId_end implements Serializable {
 
   static final long serialVersionUID = 1L;
 
@@ -38,7 +38,7 @@ public class PurchaseListId implements Serializable {
       return false;
     }
 
-    PurchaseListId that = (PurchaseListId) o;
+    PurchaseListId_end that = (PurchaseListId_end) o;
 
     if (getStudentName() != null ? !getStudentName().equals(that.getStudentName())
         : that.getStudentName() != null) {

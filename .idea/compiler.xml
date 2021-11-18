@@ -2,6 +2,7 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
@@ -23,12 +24,15 @@
         <module name="folder-size" />
         <module name="GeometryCalculator" />
         <module name="Hospital" />
+        <module name="SQL-Hibernate" />
         <module name="LambdaExpressions7.1" />
         <module name="LambdaExpressions7.2-Employee" />
         <module name="ReverseArray" />
         <module name="folder-copy" />
+        <module name="SQL-ManyToMany" />
         <module name="SQL-query" />
         <module name="EmailList" />
+        <module name="spb-metro" />
         <module name="TotalEarningsCalculator" />
         <module name="html-read" />
         <module name="FullNameFormatterRegExp" />
@@ -37,12 +41,13 @@
         <module name="CoolNumber" />
         <module name="TwoDimensionalArray" />
         <module name="Inheritance3" />
+        <module name="SQL-LinkedPurchaseList" />
         <module name="TodoList" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="Moskow-Metro" target="16" />
-      <module name="spb-metro" target="11" />
+      <module name="MSK-metro" target="16" />
     </bytecodeTargetLevel>
   </component>
 </project>
