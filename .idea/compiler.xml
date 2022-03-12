@@ -26,6 +26,7 @@
         <module name="GeometryCalculator" />
         <module name="Hospital" />
         <module name="SQL-Hibernate" />
+        <module name="bookLibrary" />
         <module name="LambdaExpressions7.1" />
         <module name="LambdaExpressions7.2-Employee" />
         <module name="ReverseArray" />
@@ -36,19 +37,29 @@
         <module name="spb-metro" />
         <module name="TotalEarningsCalculator" />
         <module name="html-read" />
+        <module name="Transactions" />
         <module name="FullNameFormatterRegExp" />
         <module name="Inheritance1" />
         <module name="MSK-metro" />
         <module name="CoolNumber" />
         <module name="TwoDimensionalArray" />
         <module name="Inheritance3" />
+        <module name="ToDoListSpring" />
         <module name="SQL-LinkedPurchaseList" />
+        <module name="ForkJoinPool" />
         <module name="TodoList" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="Moskow-Metro" target="16" />
       <module name="MSK-metro" target="16" />
+      <module name="ToDoList" target="16" />
     </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="ToDoList" options="" />
+      <module name="bookLibrary" options="-parameters" />
+    </option>
   </component>
 </project>
