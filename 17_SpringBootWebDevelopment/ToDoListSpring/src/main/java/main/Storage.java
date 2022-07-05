@@ -1,6 +1,6 @@
 package main;
 
-import response.Task;
+import main.model.Task;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;

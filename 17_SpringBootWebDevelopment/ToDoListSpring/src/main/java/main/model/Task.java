@@ -1,7 +1,17 @@
-package response;
+package main.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Task {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;//идентификатор задачи
+
     private String name;//название задачи
     private String tasktext = "nothing";//текст задачи с начальным значением
     private String date;//дата и время создания задачи
