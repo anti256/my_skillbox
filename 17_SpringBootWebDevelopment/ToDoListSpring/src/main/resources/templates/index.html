@@ -5,6 +5,7 @@
     <title>ToDoList</title>
     <script src="js/jquery-3.4.0.min.js"></script>
     <script src="js/main.js"></script>
+    <script type="text/javascript" th:inline="none"></script>
     <link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
 <body>
@@ -37,8 +38,8 @@
         </form>
     </div>
 
-    <!--<h1>Список(<span th:inline="text">"${tasksCount}"</span>)</h1>-->
-    <h1 th:object="${storage}">Список(<span th:text="${tasksсount}" id="count"></span>)</h1>
+    <h1>Список(<span th:text="${tasksCount}" id="count">0</span>)</h1>
+
     <button id="show-add-todo-form">Добавить дело</button>
     <button id="delete-some-task" disabled="true">Удалить дело</button>
     <button id="show-update-todo-form" disabled="true">Обновить дело</button>
@@ -46,8 +47,10 @@
     <button id="delete-all-todo" disabled="true">Удалить все дела</button>
     <br><br>
     <div id="todo-list"><!--список задач-->
-        <div th:each="task : ${tasks}">
-            <a href="#" class="task-link" th:attr="data-id=${task.id}" th:text="${task.name}"></a>
+        <div th:each="task : ${tasks}" th:attr="id=${task.id} + 'div'">
+            <input type="checkbox" name="check" value="" th:attr="id=${task.id} + 'check'">
+            <a href="#" class="task-link" th:attr="data-id=${task.id}" th:text="${task.id} + ' - ' + ${task.name}"></a><br>
+            <!--<a href="#" class="task-link" th:attr="data-id=${task.id}" th:text="${task.name}"></a>-->
         </div>
 
     </div>
@@ -57,3 +60,6 @@
 
 </body>
 </html>
+
+
+

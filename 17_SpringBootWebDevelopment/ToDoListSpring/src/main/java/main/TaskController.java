@@ -20,7 +20,7 @@ public class TaskController {
     private TaskRepository taskRepository;
 
     @GetMapping("/todos")//ссылка относительно главной страницы
-    public synchronized List<Task> list(){
+    public List<Task> list(){
         Iterable<Task> taskIterable = taskRepository.findAll();
         ArrayList<Task> tasks = new ArrayList<>();
         for (Task task : taskIterable){
@@ -30,7 +30,7 @@ public class TaskController {
     }
 
     @PostMapping("/todos")
-    public synchronized int add(Task task){//добавление задачи
+    public int add(Task task){//добавление задачи
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yy HH.mm");
         task.setDate(dateFormat.format(new Date()));//назначение задаче даты и времени создания
         Task newTask = taskRepository.save(task);
@@ -38,7 +38,7 @@ public class TaskController {
     }
 
     @GetMapping("/todos/{id}")
-    public synchronized ResponseEntity get(@PathVariable int id){//раскрытие отдельной задачи
+    public ResponseEntity get(@PathVariable int id){//раскрытие отдельной задачи
         Optional<Task> optionalTask = taskRepository.findById(id);
         if (!optionalTask.isPresent()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
@@ -47,19 +47,19 @@ public class TaskController {
     }
 
     @DeleteMapping("/todos")//удаление всех задач
-    public synchronized int delete(){
+    public int delete(){
         taskRepository.deleteAll();
         return (int) taskRepository.count();
     }
 
     @DeleteMapping("/todos/{id}")//удаление отдельной задачи
-    public synchronized int deleteOne(@PathVariable int id){
+    public int deleteOne(@PathVariable int id){
         taskRepository.deleteById(id);
         return (int) taskRepository.count();
     }
 
     @PutMapping("/todos/{id}")//обновление отдельной задачи
-    public synchronized int Put(@PathVariable int id, @RequestBody Task t){
+    public int Put(@PathVariable int id, @RequestBody Task t){
         Task task = new Task();
         task.setId(t.getId());
         task.setName(t.getName());
@@ -71,7 +71,7 @@ public class TaskController {
     }
 
     @GetMapping("/todos/count")//общее количество задач
-    public synchronized int get(){
+    public int get(){
         return (int) taskRepository.count();
     }
 }

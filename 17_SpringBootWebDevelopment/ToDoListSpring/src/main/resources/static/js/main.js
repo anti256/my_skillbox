@@ -38,12 +38,12 @@ $(function(){
     $(document).ready(function(){getCount()});
 
     //загрузка задач в список задач
-    $.get('/todos/', function(response)
+   /* $.get('/todos/', function(response)
     {
         for(i in response) {
             appendTask(response[i]);
         }
-    });
+    });*/
 
     //показ формы добавления по нажатию кнопки Добавить
     $('#show-add-todo-form').click(function(){//функция по нажатию на кнопку с идент-ром show-add-todo-form
@@ -148,7 +148,7 @@ $(function(){
                     task[dataArray[i]['name']] = dataArray[i]['value'];//task наполняется данными из формы добавления задачи
                 }
                 getCount();//обновление информации о количестве задач и активация-деактивация кнопок
-                appendTask(task);//вызов функции добавления строки о задаче в список задач
+               // appendTask(task);//вызов функции добавления строки о задаче в список задач
             }
         });
         return false;//чтобы при нажатии на ссылку не перзагрузилась страница
@@ -235,12 +235,12 @@ $(function(){
                         }
                 });    //конец ajax
             };
-                $.get('/todos', function(response)
-                    {
-                         for(k in response) {
-                         appendTask(response[k]);
-                         }
-                    });
+//                $.get('/todos', function(response)
+//                    {
+//                         for(k in response) {
+//                         appendTask(response[k]);
+//                         }
+//                    });
 
         }//конец else
         getCount();//обновляем на странице количество задач и активность кнопок
