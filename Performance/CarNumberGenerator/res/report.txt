@@ -1,0 +1,8 @@
+- Время выполнения программы изначально - 25379 ms
+- После использования StringBuilder  в классе padNumber - 24657 ms
+- StringBuilder для каждого числа 1398 ms
+- StringBuilder для 1000 номеров, один регион 1235 ms
+- StringBuilder для 1000 номеров, десять регионов 15384 ms
+- StringBuilder для 1000 номеров, сто регионов, запись по 1024 байт 84894 ms
+- PrintWriter вместо FileOutputStream, StringBuilder для каждого числа 97479 ms
+- PrintWriter вместо FileOutputStream, StringBuilder для каждого региона 62931 ms
