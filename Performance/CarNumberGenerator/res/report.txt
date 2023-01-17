@@ -6,3 +6,4 @@
 - StringBuilder для 1000 номеров, сто регионов, запись по 1024 байт 84894 ms
 - PrintWriter вместо FileOutputStream, StringBuilder для каждого числа 97479 ms
 - PrintWriter вместо FileOutputStream, StringBuilder для каждого региона 62931 ms
+- Один поток на каждое сочетание из трех букв 66105 - 111283 ms
