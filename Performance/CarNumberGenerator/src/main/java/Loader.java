@@ -12,9 +12,8 @@ public class Loader {
 
 
         for (char firstLetter : letters) {//первая буква номера
-          for (char secondLetter : letters) {//вторая буква номера
-              new ThreadLetterNumber(firstLetter, secondLetter, start).start();
-            }
+              //создание и запуск потока обработки комбинации из трех букв
+              new ThreadLetterNumber(firstLetter, start).start();
         }
 
         //System.out.println((System.currentTimeMillis() - start) + " ms");
