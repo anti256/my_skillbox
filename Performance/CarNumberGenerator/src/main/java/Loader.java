@@ -13,10 +13,7 @@ public class Loader {
 
         for (char firstLetter : letters) {//первая буква номера
           for (char secondLetter : letters) {//вторая буква номера
-            for (char thirdLetter : letters) {//третья буква номера
-              //создание и запуск потока обработки комбинации из трех букв
-              new ThreadLetterNumber(firstLetter, secondLetter, thirdLetter, start).start();
-                }
+              new ThreadLetterNumber(firstLetter, secondLetter, start).start();
             }
         }
 

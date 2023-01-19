@@ -6,45 +6,46 @@ public class ThreadLetterNumber extends Thread
 
   private char firstSign;//первая буква
   private char secondSign;//вторая буква
-  private char thirdSign;//третья буква
   private PrintWriter writer;
   private long start;//начальное время программы
+  char threadLetters[] = {'У', 'К', 'Е', 'Н', 'Х', 'В', 'А', 'Р', 'О', 'С', 'М', 'Т'};//набор букв для номера
 
   //конструктор
-  public ThreadLetterNumber(char firstSign, char secondSign, char thirdSign, long start)
+  public ThreadLetterNumber(char firstSign, char secondSign, long start)
       throws FileNotFoundException {
     this.firstSign = firstSign;
     this.secondSign = secondSign;
-    this.thirdSign = thirdSign;
     this.start = start;
     String filePath = "./Performance/CarNumberGenerator/res/numbers_files/numbers" +
-        firstSign + secondSign + thirdSign + ".txt";
+        firstSign + firstSign + ".txt";
     writer = new PrintWriter(filePath);
   }
 
   @Override
   public void run(){//тело потока
-    for (int regionCode = 1; regionCode < 100; regionCode++) {//перебор по регионам
-      StringBuilder builder = new StringBuilder();
-      for (int number = 1; number < 1000; number++) {//перебор по цифрам номера
-        //собираем из частей номер
-        builder.append(firstSign);
-        builder.append(padNumber(number, 3));
-        builder.append(secondSign);
-        builder.append(thirdSign);
-        builder.append(padNumber(regionCode, 2));
-        builder.append('\n');
-      }
-      writer.write(builder.toString());//запись набранного в builder
+      for (char thirdLetter : threadLetters) {//третья буква номера
+        for (int regionCode = 1; regionCode < 100; regionCode++) {//перебор по регионам
+          StringBuilder builder = new StringBuilder();
+          for (int number = 1; number < 1000; number++) {//перебор по цифрам номера
+            //собираем из частей номер
+            builder.append(firstSign);
+            builder.append(padNumber(number, 3));
+            builder.append(secondSign);
+            builder.append(thirdLetter);
+            builder.append(padNumber(regionCode, 2));
+            builder.append('\n');
+          }
+          writer.write(builder.toString());//запись набранного в builder
+        }
     }
     writer.flush();//запись остатка в builder
     writer.close();
     //вывод времени с начала программы до конца потока
-    System.out.println(Character.toString(firstSign) + Character.toString(secondSign) +
-        Character.toString(thirdSign) + " " + (System.currentTimeMillis() - start) + " ms");
+    System.out.println(Character.toString(firstSign) + Character.toString(secondSign) + " "
+        + (System.currentTimeMillis() - start) + " ms");
   }
 
-  //создание набора бсимволов из набора цифр
+  //создание набора символов из набора цифр
   private static String padNumber(int number, int numberLength) {
     StringBuilder builderPadNumber = new StringBuilder(Integer.toString(number));
     int padSize = numberLength - builderPadNumber.toString().length();
